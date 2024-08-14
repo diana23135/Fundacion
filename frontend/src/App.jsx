@@ -4,14 +4,16 @@ export function App() {
   return (
     <>
       <header className="header">
-        <h1>Formulario</h1>
+        
       </header>
       <main className="board">
         <aside>
-          <section>
-            <form action="" className="m_s_a">
+          <section className="m_s_a">
+            <h1>Formulario</h1>
+            <form action="" className="form-inscription" >
+           
               <div className="m_form_hoja_ingreso">
-                <div className="form-group">
+                <div className="form-group name">
                   <label htmlFor="nombre">Nombres</label>
                   <input
                     id="nombre"
@@ -19,7 +21,7 @@ export function App() {
                     placeholder="Ingrese sus nombres"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group last-name">
                   <label htmlFor="apellido">Apellido</label>
                   <input
                     id="apellido"
@@ -27,7 +29,7 @@ export function App() {
                     placeholder="Ingrese su apellido"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group age">
                   <label htmlFor="edad">Edad</label>
                   <input
                     id="edad"
@@ -35,11 +37,11 @@ export function App() {
                     placeholder="Ingrese su edad"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group born-age">
                   <label htmlFor="fecha-nacimiento">Fecha de nacimiento</label>
                   <input id="fecha-nacimiento" type="date" />
                 </div>
-                <div className="form-group">
+                <div className="form-group cityborn">
                   <label htmlFor="lugar-nacimiento">Lugar de nacimiento</label>
                   <input
                     id="lugar-nacimiento"
@@ -47,7 +49,7 @@ export function App() {
                     placeholder="Ingrese su lugar de nacimiento"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group diagnostic">
                   <label htmlFor="diagnostico">Diagnóstico</label>
                   <input
                     id="diagnostico"
