@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+.board {
+  background-color: #cd1c1c; /* Fondo blanco para el formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 2em; /* Espaciado interno */
+  max-width: 1000px; /* Ancho máximo */
+  margin: 2em auto;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+footer {
+  background-color: #910505;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+form label {
+  display: block; /* Mostrar las etiquetas como bloques */
+  margin-bottom: 0.5em; /* Espaciado inferior */
+  font-weight: bold; /* Texto en negrita */
+  color: #555; /* Color del texto */
+}
+form {
+  background-color: #fff; /* Fondo blanco para el formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 2em; /* Espaciado interno */
+  margin: 2em auto; /* Margen superior e inferior, centrado horizontalmente */
+}
