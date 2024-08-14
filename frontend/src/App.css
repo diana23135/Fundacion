@@ -1,41 +1,79 @@
+/* Estilos generales */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
-  color: #333;
 }
-.board {
-  background-color: #cd1c1c; /* Fondo blanco para el formulario */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  padding: 2em; /* Espaciado interno */
-  max-width: 1000px; /* Ancho máximo */
-  margin: 2em auto;
-}
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 1em;
-  text-align: center;
-}
-footer {
-  background-color: #910505;
-  color: #fff;
-  padding: 1em;
+
+.header, .footer {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
   text-align: center;
 }
 
-form label {
-  display: block; /* Mostrar las etiquetas como bloques */
-  margin-bottom: 0.5em; /* Espaciado inferior */
-  font-weight: bold; /* Texto en negrita */
-  color: #555; /* Color del texto */
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
-form {
-  background-color: #fff; /* Fondo blanco para el formulario */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  padding: 2em; /* Espaciado interno */
-  margin: 2em auto; /* Margen superior e inferior, centrado horizontalmente */
+
+.m_s_a {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px; /* Ajusta el ancho del formulario */
+  box-sizing: border-box;
+}
+
+.m_form_hoja_ingreso {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px; /* Espacio entre los campos */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.m_form_hoja_ingreso label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.m_form_hoja_ingreso input[type="text"],
+.m_form_hoja_ingreso input[type="number"],
+.m_form_hoja_ingreso input[type="date"],
+.m_form_hoja_ingreso select {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.m_form_hoja_ingreso button.main_f_b {
+  grid-column: span 2; /* Hacer el botón de envío ocupar dos columnas */
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.m_form_hoja_ingreso button.main_f_b:hover {
+  background-color: #0056b3;
+}
+
+aside {
+  margin: 0 auto;
 }

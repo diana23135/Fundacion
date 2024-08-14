@@ -4,53 +4,108 @@ export function App() {
   return (
     <>
       <header className="header">
-        
+        <h1>Formulario</h1>
       </header>
       <main className="board">
         <aside>
           <section>
             <form action="" className="m_s_a">
               <div className="m_form_hoja_ingreso">
-                <label htmlFor=""> Nombres </label>
-                <input type="text" placeholder="Ingrese sus nombre" />
-                <label htmlFor=""> Apellido </label>
-                <input type="text" placeholder="Ingrese sus apellidos" />
-                <label htmlFor=""> Edad </label>
-                <input type="number" placeholder="Ingrese su edad" />
-                <label htmlFor=""> Fecha de nacimiento </label>
-                <input type="date" placeholder="DD-MM-AAAA" />
-                <label htmlFor=""> Lugar de nacimiento </label>
-                <input
-                  type="varchar"
-                  placeholder="Ingrese su lugar de hacimiento"
-                />
-                <label htmlFor=""> Diagnostico </label>
-                <input type="varchar" placeholder="Ingrese texto" />
-                <label htmlFor=""> Se encuentra escolarizado </label>
-                <input type="varchar" placeholder="Ingrese texto" />
-                <label htmlFor=""> Nombre de la institución </label>
-                <label htmlFor=""> Jornada</label>
-                <select>
-                  <option>Tarde</option>
-                  <option>Mañana</option>
-                  <option>Noche</option>
-                </select>
-                <label htmlFor=""> Curso </label>
-                <input type="varchar" placeholder="Ingrese el curso" />
-                <label htmlFor=""> EPS </label>
-                <input type="varchar" />
-                <label htmlFor=""> Se encuentra en terapias</label>
-                <select>
-                  <option>Si</option>
-                  <option>No</option>
-                </select>
+                <div className="form-group">
+                  <label htmlFor="nombre">Nombres</label>
+                  <input
+                    id="nombre"
+                    type="text"
+                    placeholder="Ingrese sus nombres"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="apellido">Apellido</label>
+                  <input
+                    id="apellido"
+                    type="text"
+                    placeholder="Ingrese su apellido"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="edad">Edad</label>
+                  <input
+                    id="edad"
+                    type="number"
+                    placeholder="Ingrese su edad"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="fecha-nacimiento">Fecha de nacimiento</label>
+                  <input id="fecha-nacimiento" type="date" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="lugar-nacimiento">Lugar de nacimiento</label>
+                  <input
+                    id="lugar-nacimiento"
+                    type="text"
+                    placeholder="Ingrese su lugar de nacimiento"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="diagnostico">Diagnóstico</label>
+                  <input
+                    id="diagnostico"
+                    type="text"
+                    placeholder="Ingrese diagnóstico"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="escolarizado">
+                    ¿Se encuentra escolarizado?
+                  </label>
+                  <input
+                    id="escolarizado"
+                    type="text"
+                    placeholder="Ingrese texto"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="institucion">Nombre de la institución</label>
+                  <input
+                    id="institucion"
+                    type="text"
+                    placeholder="Ingrese nombre de la institución"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="jornada">Jornada</label>
+                  <select id="jornada">
+                    <option>Tarde</option>
+                    <option>Mañana</option>
+                    <option>Noche</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="curso">Curso</label>
+                  <input
+                    id="curso"
+                    type="text"
+                    placeholder="Ingrese el curso"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="eps">EPS</label>
+                  <input id="eps" type="text" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="terapias">¿Se encuentra en terapias?</label>
+                  <select id="terapias">
+                    <option>Si</option>
+                    <option>No</option>
+                  </select>
+                </div>
               </div>
               <button className="main_f_b">Enviar</button>
             </form>
           </section>
         </aside>
       </main>
-
       <footer></footer>
     </>
   );
