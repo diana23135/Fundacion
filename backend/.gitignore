@@ -17,3 +17,6 @@ __pycache__/
 # Ignorar archivos de bases de datos locales
 *.db
 *.sqlite
+
+# Ignorar archivos personales o de trabajo
+pendientes.txt

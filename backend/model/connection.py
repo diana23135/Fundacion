@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from contextlib import contextmanager
-import settings
+from . import settings
 
 # Configuración de SQLAlchemy
 engine = create_engine(
