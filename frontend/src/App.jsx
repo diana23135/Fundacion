@@ -1,126 +1,212 @@
-import "./App.css";
 
+import "./assets/css/App.css";
+import { Formulario } from "./Form";
+import { Footer} from "./view/utils/Footer";
+import { ButtonBack } from "./view/utils/buttonBack";
+import { Nav } from "./view/utils/Nav";
 export function App() {
+  const formulario = {
+    columna1: {
+      nombre: {
+        label: "Nombre",
+        type: "text",
+        placeholder: "Ingrese su nombre",
+        id: "nombre",
+      },
+      apellido: {
+        label: "Apellido",
+        type: "text",
+        placeholder: "Ingrese su apellido",
+        id: "apellido",
+      },
+    },
+    columna2: {
+      edad: {
+        label: "Edad",
+        type: "number",
+        placeholder: "Ingrese su edad",
+        id: "edad",
+      },
+      fecha_nacimiento: {
+        label: "Fecha Nacimiento",
+        type: "date",
+        placeholder: "",
+        id: "fecha_nacimiento",
+      },
+      lugar_nacimiento: {
+        label: "Lugar Nacimiento",
+        type: "text",
+        placeholder: "Ingrese el lugar de nacimiento",
+        id: "lugar_nacimiento",
+      },
+    },
+    columna3: {
+      diagnostico: {
+        label: "Diagnóstico",
+        type: "text",
+        placeholder: "Ingrese el diagnóstico",
+        id: "diagnostico",
+      },
+    },
+    columna4: {
+      escolarizado: {
+        label: "¿Se encuentra escolarizado?",
+        type: "checkbox",
+        placeholder: "",
+        id: "escolarizado",
+      },
+      institucion: {
+        label: "Nombre de la institución",
+        type: "text",
+        placeholder: "Ingrese el nombre de la institución",
+        id: "institucion",
+      },
+    },
+    columna5: {
+      jornada: {
+        label: "Jornada",
+        type: "text",
+        placeholder: "Ingrese la jornada",
+        id: "jornada",
+      },
+      curso: {
+        label: "Curso",
+        type: "text",
+        placeholder: "Ingrese el curso",
+        id: "curso",
+      },
+      eps: {
+        label: "EPS",
+        type: "text",
+        placeholder: "Ingrese EPS",
+        id: "eps",
+      },
+    },
+    columna6: {
+      terapias: {
+        label: "¿Se encuentra en terapias?",
+        type: "checkbox",
+        placeholder: "",
+        id: "terapias",
+      },
+      donde: {
+        label: "¿Dónde?",
+        type: "text",
+        placeholder: "Ingrese dónde",
+        id: "donde",
+      },
+    },
+    columna7: {
+      cuidador1_nombre: {
+        label: "Nombre del cuidador",
+        type: "text",
+        placeholder: "Ingrese el nombre del cuidador",
+        id: "nombre_cuidador1",
+      },
+      cuidador1_edad: {
+        label: "Edad",
+        type: "number",
+        placeholder: "Ingrese la edad del cuidador",
+        id: "edad_cuidador1",
+      },
+    },
+    columna8: {
+      identificacion: {
+        label: "No. de Documento de identidad",
+        type: "text",
+        placeholder: "Ingrese el número de documento",
+        id: "identificacion_cuidador1",
+      },
+    },
+    columna9: {
+      ocupacion: {
+        label: "Ocupación",
+        type: "text",
+        placeholder: "Ingrese la ocupación",
+        id: "ocupacion_cuidador1",
+      },
+    },
+    columna10: {
+      cuidador2_nombre: {
+        label: "Nombre del cuidador",
+        type: "text",
+        placeholder: "Ingrese el nombre del cuidador",
+        id: "nombre_cuidador2",
+      },
+      cuidador2_edad: {
+        label: "Edad",
+        type: "number",
+        placeholder: "Ingrese la edad del cuidador",
+        id: "edad_cuidador2",
+      },
+    },
+    columna11: {
+      identificacion: {
+        label: "No. Documento de identidad",
+        type: "text",
+        placeholder: "Ingrese el número de documento",
+        id: "identificacion_cuidador2",
+      },
+    },
+    columna12: {
+      ocupacion: {
+        label: "Ocupación",
+        type: "text",
+        placeholder: "Ingrese la ocupación",
+        id: "ocupacion_cuidador2",
+      },
+    },
+    columna13: {
+      barrio: {
+        label: "Barrio donde viven",
+        type: "text",
+        placeholder: "Ingrese el barrio",
+        id: "barrio",
+      },
+      direccion: {
+        label: "Dirección",
+        type: "text",
+        placeholder: "Ingrese la dirección",
+        id: "direccion",
+      },
+    },
+    columna14: {
+      telefono_fijo: {
+        label: "Telefono fijo",
+        type: "text",
+        placeholder: "Ingrese el teléfono fijo",
+        id: "telefono_fijo",
+      },
+      telefono_celular: {
+        label: "Telefono celular",
+        type: "text",
+        placeholder: "Ingrese el teléfono celular",
+        id: "telefono_celular",
+      },
+    },
+  };
+
+ 
+
   return (
     <>
-      <header className="header"></header>
+      <header className="header">
+        <Nav/>
+      </header>
+      <ButtonBack/>
       <main className="board">
         <aside>
+        </aside>
+        
+         
           <section className="section-form">
             <header>Formulario</header>
-            <form action="" className="form">
-              <div className="column">
-                <div className="input-box">
-                  <label htmlFor="nombre">Nombres</label>
-                  <input
-                    id="nombre"
-                    type="text"
-                    placeholder="Ingrese sus nombres" required
-                  />
-                </div>
-                <div className="input-box">
-                  <label htmlFor="apellido">Apellido</label>
-                  <input
-                    id="apellido"
-                    type="text"
-                    placeholder="Ingrese su apellido" required
-                  />
-                </div>
-              </div>
-
-              <div className="column">
-                <div className="input-box">
-                  <label htmlFor="edad">Edad</label>
-                  <input
-                    id="edad"
-                    type="number"
-                    placeholder="Ingrese su edad" required
-                  />
-                </div>
-                <div className="input-box">
-                  <label htmlFor="fecha-nacimiento">Fecha de nacimiento</label>
-                  <input id="fecha-nacimiento" type="date" required />
-                </div>
-                <div className="input-box">
-                  <label htmlFor="lugar-nacimiento">Lugar de nacimiento</label>
-                  <input
-                    id="lugar-nacimiento"
-                    type="text"
-                    placeholder="Ingrese su lugar de nacimiento" required
-                  />
-                </div>
-              </div>
-              <div className="input-box">
-                <label htmlFor="diagnostico">Diagnóstico</label>
-                <input
-                  id="diagnostico"
-                  type="text"
-                  placeholder="Ingrese diagnóstico" required
-                />
-              </div>
-              <div className="column">
-                <div className="input-box">
-                  <label htmlFor="escolarizado">
-                    ¿Se encuentra escolarizado?
-                  </label>
-                  <input
-                    id="escolarizado"
-                    type="text"
-                    placeholder="Ingrese texto" required
-                  />
-                </div>
-
-                <div className="input-box">
-                  <label htmlFor="institucion">Nombre de la institución</label>
-                  <input
-                    id="institucion"
-                    type="text"
-                    placeholder="Ingrese nombre de la institución" required
-                  />
-                </div>
-              </div>
-              <div className="column">
-                <div className="input-box">
-                  <label htmlFor="jornada">Jornada</label>
-                  <select id="jornada" required>
-                    <option>Tarde</option>
-                    <option>Mañana</option>
-                    <option>Noche</option>
-                  </select>
-                </div>
-                <div className="input-box">
-                  <label htmlFor="curso">Curso</label>
-                  <input
-                    id="curso"
-                    type="text" required
-                    placeholder="Ingrese el curso"
-                  />
-                </div>
-                <div className="input-box">
-                  <label htmlFor="eps">EPS</label>
-                  <input id="eps" type="text"  required/>
-                </div>
-              </div>
-              <div className="column">
-                <div className="input-box">
-                  <label htmlFor="terapias">¿Se encuentra en terapias?</label>
-                  <select id="terapias" required>
-                    <option>Si</option>
-                    <option>No</option>
-                  </select>
-                </div>
-                <div className="input-box">
-                  <label htmlFor="terapias">¿Donde?</label>
-                  <input id="lugar-terapias" type="text" required />
-                </div>
-              </div>
-
-              <button className="button">Enviar</button>
-            </form>
+            <Formulario formulario={formulario}></Formulario>
+          
           </section>
-        </aside>
+        
       </main>
-      <footer></footer>
+      <Footer/>
     </>
   );
 }

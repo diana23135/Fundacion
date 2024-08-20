@@ -1,0 +1,19 @@
+# Ignorar el archivo de configuración de entorno
+.env
+
+# Ignorar archivos de entorno virtual (si estás usando uno)
+venv/
+myenv/
+
+# Ignorar archivos específicos de PyCharm
+.idea/
+
+# Ignorar archivos de compilación
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos de bases de datos locales
+*.db
+*.sqlite
