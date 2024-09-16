@@ -1,9 +1,10 @@
 
 import "./assets/css/App.css";
-import { Formulario } from "./Form";
-import { Footer} from "./view/utils/Footer";
-import { ButtonBack } from "./view/utils/buttonBack";
-import { Nav } from "./view/utils/Nav";
+import { Formulario } from "./views/utils/Form";
+//import { Historia } from "./views/historiaClinica/Historia";
+import { Footer} from "./views/utils/Footer";
+import { ButtonBack } from "./views/utils/buttonBack";
+import { Nav } from "./views/utils/Nav";
 export function App() {
   const formulario = {
     columna1: {
@@ -202,7 +203,7 @@ export function App() {
           <section className="section-form">
             <header>Formulario</header>
             <Formulario formulario={formulario}></Formulario>
-          
+            {/* <Historia/> */}
           </section>
         
       </main>
