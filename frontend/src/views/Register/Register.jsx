@@ -7,13 +7,14 @@ import { useValidation } from "../../hooks/useValidation";
 export function Register() {
   const navigate = useNavigate();
   const [form, setFormState] = useState({
-    nombreUsuario:"",
-    correo:"",
-    contraseña :"",
-    'confirm-password':""});
-  
-    const { errors,  validationForm } = useValidation();
- 
+    nombreUsuario: "",
+    correo: "",
+    contraseña: "",
+    "confirm-password": "",
+  });
+
+  const { errors, validationForm } = useValidation();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((form) => ({
@@ -33,11 +34,9 @@ export function Register() {
       .then((response) => response.json())
       .then((data) => {
         toast.success(data.message);
-        navigate('/')})
-      .catch((error) => 
-       
-        
-        console.log(error));
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleSubmit = (e) => {
@@ -51,10 +50,11 @@ export function Register() {
 
   return (
     <div className="login-container">
-      <img id="logo" src=".\src\assets\imgs\eccargo.png"></img>
+      <img className="logo" src="./icon.png"></img>
+      <br></br>
       <h2>Registro</h2>
       <form onSubmit={handleSubmit}>
-        <div className="input-group">
+        <div className="cajita1">
           <label htmlFor="username">Nombre de Usuario</label>
           <input
             name="nombreUsuario"
@@ -62,11 +62,8 @@ export function Register() {
             id="username"
             placeholder="Ingrese su nombre de usuario"
             onChange={handleChange}
-            
           />
-        </div>
 
-        <div className="input-group">
           <label htmlFor="email">Correo Electrónico</label>
           <input
             name="correo"
@@ -74,11 +71,8 @@ export function Register() {
             id="email"
             placeholder="Ingrese su correo electrónico"
             onChange={handleChange}
-            
           />
-        </div>
 
-        <div className="input-group">
           <label htmlFor="password">Contraseña</label>
           <input
             name="contraseña"
@@ -86,11 +80,8 @@ export function Register() {
             id="password"
             placeholder="Ingrese su contraseña"
             onChange={handleChange}
-            
           />
-        </div>
 
-        <div className="input-group">
           <label htmlFor="confirm-password">Confirmar Contraseña</label>
           <input
             name="confirm-password"
@@ -98,12 +89,13 @@ export function Register() {
             id="confirm-password"
             placeholder="Confirme su contraseña"
             onChange={handleChange}
-            
           />
         </div>
-
-        <button className="button-register" type="submit">Registrarse</button>
-
+        <button className="button-register" type="submit">
+          Registrarse
+        </button>
+        <br></br>
+        <br></br>
         <div className="register-link">
           <p>
             ¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link>

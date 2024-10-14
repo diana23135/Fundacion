@@ -1,18 +1,117 @@
 .success-message {
-    color: green;
-    margin-bottom: 15px;
-  }
-  
-  .register-link {
-    margin-top: 15px;
-  }
-  
-  .register-link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .register-link a:hover {
-    text-decoration: underline;
-  }
- 
+  color: green;
+  margin-bottom: 15px;
+}
+
+.login-container {
+  font-family: "Arial", sans-serif; /* Aplica la fuente Arial a todo el contenedor */
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto; /* Centrar el logo horizontalmente */
+  width: 100px; /* Ajusta el tamaño del logo */
+  height: auto; /* Mantener la proporción */
+  border-radius: 50%; /* Hacer el logo circular */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+}
+
+h2 {
+  font-family: "Arial", sans-serif; /* Aplica Arial a los encabezados */
+}
+
+.cajita1 {
+  margin: 15px;
+  padding: 15px;
+  display: flex; /* Usar flexbox para alinear los elementos */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items: flex-start; /* Alinear elementos al inicio (izquierda) */
+}
+
+.cajita1 label {
+  margin: 10px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif; /* Aplica Arial a las etiquetas */
+  text-align: left; /* Alinear texto a la izquierda */
+}
+
+input {
+  font-family: "Arial", sans-serif; /* Aplica Arial a los campos de texto */
+  width: 100%; /* Usar el ancho completo del contenedor */
+  max-width: 300px; /* Establecer un ancho máximo si es necesario */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left; /* Cambiar a left para un mejor formato en campos de texto */
+  transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+/* Cambiar el borde del input al enfocarse */
+input:focus {
+  border-color: #4b86b4; /* Color del borde al enfocar */
+  outline: none; /* Sin contorno */
+}
+
+.error-message {
+  font-family: "Arial", sans-serif; /* Aplica Arial a los mensajes de error */
+  color: red;
+  margin-bottom: 15px;
+}
+.submit {
+  display: inline-block;
+  padding: 12px 24px; /* Espacio interno del botón */
+  background-color: #4b86b4; /* Color de fondo (verde) */
+  color: white; /* Color del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  border: none; /* Sin bordes */
+  border-radius: 30px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor a mano al pasar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: background-color 0.3s, transform 0.3s; /* Animación suave */
+}
+
+.submit:hover {
+  background-color: #2a4d69; /* Color de fondo más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+}
+
+.submit:active {
+  background-color: #2a4d69; /* Color más oscuro cuando se hace clic */
+  transform: scale(0.98); /* Ligera contracción al hacer clic */
+}
+.button-register {
+  display: inline-block;
+  padding: 12px 24px; /* Espacio interno del botón */
+  background-color: #4b86b4; /* Color de fondo (verde) */
+  color: white; /* Color del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  border: none; /* Sin bordes */
+  border-radius: 30px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor a mano al pasar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: background-color 0.3s, transform 0.3s; /* Animación suave */
+}
+
+.button-register:hover {
+  background-color: #2a4d69; /* Color de fondo más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+}
+
+.button-register:active {
+  background-color: #2a4d69; /* Color más oscuro cuando se hace clic */
+  transform: scale(0.98); /* Ligera contracción al hacer clic */
+}
