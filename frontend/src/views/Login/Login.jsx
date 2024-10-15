@@ -1,29 +1,8 @@
-import { useState } from "react";
+
 import "./Login.css";
-import { useValidation } from "../../hooks/useValidation";
-import { useNavigate } from "react-router-dom";
 
-export function Login({ onLogin }) {
-  const [form, setForm] = useState(null);
-  const navigate = useNavigate();
 
-  const { errors, validationForm } = useValidation();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((form) => ({
-      ...form,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validationForm(form)) {
-      return;
-    }
-    onLogin(form, navigate);
-  };
+export function Login() {
 
   return (
     <>
@@ -31,7 +10,7 @@ export function Login({ onLogin }) {
         <img className="logo" src="./icon.png" alt="logo" />
         <br />
         <h2>Ingreso</h2>
-        <form className="form-login" onSubmit={handleSubmit}>
+        <form className="form-login">
           <div className="cajita1">
             <label htmlFor="username">Usuario</label>
             <input
@@ -39,7 +18,6 @@ export function Login({ onLogin }) {
               name="correo"
               id="username"
               placeholder="Ingrese su correo"
-              onChange={handleChange}
               required
             />
             <label htmlFor="password">Contraseña</label>
@@ -48,7 +26,6 @@ export function Login({ onLogin }) {
               name="contraseña"
               id="password"
               placeholder="Ingrese su contraseña"
-              onChange={handleChange}
               required
             />
           </div>

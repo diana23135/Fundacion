@@ -1,4 +1,5 @@
-import "./assets/css/App.css";
+import "./App.css";
+import { Inicio } from "./views/Inicio/Inicio";
 import { Login } from "./views/Login/Login";
 import { Register } from "./views/Register/Register";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -13,6 +14,7 @@ export function App() {
       <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="/register" element={<Register />} />
+      <Route path="/Inicio" element={<Inicio/>} />
       </Routes>
       </Router>
     </>

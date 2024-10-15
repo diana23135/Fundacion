@@ -1,0 +1,162 @@
+[
+    {
+        "Fecha registro": "2024-01-15",
+        "Nombre paciente": "Juan Pérez",
+        "Nro. documento": "123456789",
+        "Acudiente": "María Pérez",
+        "Nro. documento acudiente": "987654321",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-02-10",
+        "Nombre paciente": "Ana Gómez",
+        "Nro. documento": "234567890",
+        "Acudiente": "Carlos Gómez",
+        "Nro. documento acudiente": "876543210",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-03-05",
+        "Nombre paciente": "Luis Torres",
+        "Nro. documento": "345678901",
+        "Acudiente": "Laura Torres",
+        "Nro. documento acudiente": "765432109",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-04-22",
+        "Nombre paciente": "Sofía Ramírez",
+        "Nro. documento": "456789012",
+        "Acudiente": "Diego Ramírez",
+        "Nro. documento acudiente": "654321098",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-05-18",
+        "Nombre paciente": "María López",
+        "Nro. documento": "567890123",
+        "Acudiente": "Esteban López",
+        "Nro. documento acudiente": "543210987",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-01-15",
+        "Nombre paciente": "Juan Pérez",
+        "Nro. documento": "123456789",
+        "Acudiente": "María Pérez",
+        "Nro. documento acudiente": "987654321",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-02-10",
+        "Nombre paciente": "Ana Gómez",
+        "Nro. documento": "234567890",
+        "Acudiente": "Carlos Gómez",
+        "Nro. documento acudiente": "876543210",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-03-05",
+        "Nombre paciente": "Luis Torres",
+        "Nro. documento": "345678901",
+        "Acudiente": "Laura Torres",
+        "Nro. documento acudiente": "765432109",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-04-22",
+        "Nombre paciente": "Sofía Ramírez",
+        "Nro. documento": "456789012",
+        "Acudiente": "Diego Ramírez",
+        "Nro. documento acudiente": "654321098",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-05-18",
+        "Nombre paciente": "María López",
+        "Nro. documento": "567890123",
+        "Acudiente": "Esteban López",
+        "Nro. documento acudiente": "543210987",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-01-15",
+        "Nombre paciente": "Juan Pérez",
+        "Nro. documento": "123456789",
+        "Acudiente": "María Pérez",
+        "Nro. documento acudiente": "987654321",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-02-10",
+        "Nombre paciente": "Ana Gómez",
+        "Nro. documento": "234567890",
+        "Acudiente": "Carlos Gómez",
+        "Nro. documento acudiente": "876543210",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-03-05",
+        "Nombre paciente": "Luis Torres",
+        "Nro. documento": "345678901",
+        "Acudiente": "Laura Torres",
+        "Nro. documento acudiente": "765432109",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-04-22",
+        "Nombre paciente": "Sofía Ramírez",
+        "Nro. documento": "456789012",
+        "Acudiente": "Diego Ramírez",
+        "Nro. documento acudiente": "654321098",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-05-18",
+        "Nombre paciente": "María López",
+        "Nro. documento": "567890123",
+        "Acudiente": "Esteban López",
+        "Nro. documento acudiente": "543210987",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-01-15",
+        "Nombre paciente": "Juan Pérez",
+        "Nro. documento": "123456789",
+        "Acudiente": "María Pérez",
+        "Nro. documento acudiente": "987654321",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-02-10",
+        "Nombre paciente": "Ana Gómez",
+        "Nro. documento": "234567890",
+        "Acudiente": "Carlos Gómez",
+        "Nro. documento acudiente": "876543210",
+        "Estado": "Inactivo"
+    },
+    {
+        "Fecha registro": "2024-03-05",
+        "Nombre paciente": "Luis Torres",
+        "Nro. documento": "345678901",
+        "Acudiente": "Laura Torres",
+        "Nro. documento acudiente": "765432109",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-04-22",
+        "Nombre paciente": "Sofía Ramírez",
+        "Nro. documento": "456789012",
+        "Acudiente": "Diego Ramírez",
+        "Nro. documento acudiente": "654321098",
+        "Estado": "Activo"
+    },
+    {
+        "Fecha registro": "2024-05-18",
+        "Nombre paciente": "María López",
+        "Nro. documento": "567890123",
+        "Acudiente": "Esteban López",
+        "Nro. documento acudiente": "543210987",
+        "Estado": "Inactivo"
+    }
+]

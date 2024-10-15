@@ -1,0 +1,98 @@
+:root {
+  --color-primary: #172d6b; /* Azul oscuro */
+  --color-secondary: #5190f5; /* Azul brillante */
+  --color-accent: #60a5fa; /* Azul claro */
+  --color-light: #e0f2fe; /* Celeste suave */
+  --color-background: #f3f4f6; /* Gris muy claro */
+  --color-neutral: #f9fafb; /* Blanco suave */
+}
+
+.tabla {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px auto; /* Centrar horizontalmente */
+  font-size: 1em;
+  text-align: center; /* Centrar texto */
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid var(--color-primary); /* Bordes azul oscuro */
+  padding: 8px;
+  text-align: center; /* Centrar contenido en las celdas */
+}
+
+.tabla th {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.tabla tr:nth-child(even) {
+  background-color: var(--color-light);
+}
+
+.tabla tr:hover {
+  background-color: var(--color-accent);
+}
+
+.accion-button {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  color: var(--color-primary); /* Color del icono */
+  font-size: 1.2rem; /* Tamaño del icono */
+}
+
+.accion-button:hover {
+  color: white; /* Cambia el color al pasar el mouse */
+}
+.paginacion {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagina-button {
+  background-color: var(--color-neutral);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.pagina-button.activo {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.pagina-button:hover {
+  background-color: var(--color-light);
+}
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.paginacion button {
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.paginacion button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.paginacion span {
+  margin: 0 10px;
+  font-size: 1em;
+}

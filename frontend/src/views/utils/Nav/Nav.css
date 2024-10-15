@@ -1,0 +1,126 @@
+:root {
+  --color-primary: #1e3a8a; /* Azul oscuro */
+  --color-secondary: #3b82f6; /* Azul brillante */
+  --color-accent: #60a5fa; /* Azul claro */
+  --color-light: #e0f2fe; /* Celeste suave */
+  --color-background: #f3f4f6; /* Gris muy claro */
+  --color-neutral: #f9fafb; /* Blanco suave */
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif; /* Asegura que la fuente sea sans-serif */
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+.navbar {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-primary);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Transición para mostrar/ocultar */
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.contenedor-nav {
+  display: flex; /* Cambiar a flex */
+  justify-content: space-between; /* Espacio entre logo y botones */
+  align-items: center; /* Alinear verticalmente */
+  width: 100%;
+  padding: 10px;
+}
+
+.logo-container {
+  align-items: center;
+  display: flex; /* Asegura que el logo y el texto estén en línea */
+}
+
+.logo-Blanco {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-light);
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.navbar-texto {
+  color: var(--color-neutral);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.botones-nav {
+  display: flex; /* Cambiar a flex */
+  align-items: center; /* Alinear verticalmente */
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex; /* Alinear los enlaces en una fila */
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-button {
+  display: flex; /* Para alinear el icono y el texto */
+  align-items: center; /* Centra verticalmente */
+  background-color: var(--color-secondary);
+  color: var(--color-neutral);
+  border: 2px solid var(--color-secondary);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.8rem; /* Tamaño más pequeño */
+  text-decoration: none;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.nav-button svg {
+  margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.nav-button:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+.dropdown-menu {
+  position: absolute; /* Posicionar el menú desplegable */
+  background-color: var(--color-neutral);
+  border: 1px solid var(--color-secondary);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Asegurarse de que esté por encima de otros elementos */
+  margin-top: 5px; /* Espacio entre el botón y el menú */
+}
+
+.logout-button {
+  display: flex; /* Para alinear el icono y el texto */
+  align-items: center; /* Centra verticalmente */
+  background-color: transparent; /* Fondo transparente */
+  color: var(--color-primary);
+  border: none; /* Sin borde */
+  padding: 10px; /* Espaciado */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  font-size: 0.9rem; /* Tamaño del texto */
+}
+
+.logout-button:hover {
+  background-color: var(--color-accent); /* Color al pasar el cursor */
+}
