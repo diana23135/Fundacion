@@ -6,7 +6,7 @@ export const Tabla = ({ datos }) => {
   const filasPorPagina = 5;
 
   // Comprobación para evitar errores si 'datos' está vacío
-  if (datos.length === 0) {
+  if (datos && datos.length === 0) {
     return <p>No hay datos disponibles para mostrar.</p>;
   }
 
@@ -36,7 +36,7 @@ export const Tabla = ({ datos }) => {
             {cabeceras.map((cabecera, index) => (
               <th key={index}>{cabecera}</th>
             ))}
-            <th>Acciones</th> {/* Columna para acciones */}
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -46,8 +46,7 @@ export const Tabla = ({ datos }) => {
                 <td key={cabecera}>{fila[cabecera]}</td>
               ))}
               <td>
-                <button className="accion-button">⋮</button>{" "}
-                {/* Botón de acciones */}
+                <button className="accion-button">⋮</button>
               </td>
             </tr>
           ))}

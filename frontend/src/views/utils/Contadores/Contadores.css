@@ -3,7 +3,6 @@
 }
 /* Contenedor principal para contadores */
 .contadores-descargar {
-  margin-top: 100px;
   padding: 20px;
   display: flex;
   justify-content: space-between;

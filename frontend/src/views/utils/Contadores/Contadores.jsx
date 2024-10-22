@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import {
   FaUsers,
   FaUserCheck,
@@ -9,6 +10,8 @@ import {
 import "./Contadores.css";
 
 export const Contadores = () => {
+  const navigate = useNavigate(); // Inicializa useNavigate
+  
   const contadoresData = [
     {
       icon: <FaUsers size={30} color="#007bff" />,
@@ -45,7 +48,10 @@ export const Contadores = () => {
           </div>
         ))}
       </div>
-      <button className="crear-beneficiario">
+      <button 
+        className="crear-beneficiario"
+        onClick={() => navigate('/formulario')} // Cambia '/formulario' a la ruta que tengas configurada para el formulario
+      >
         <FaPlus size={20} color="#ffffff" /> Crear beneficiario
       </button>
     </section>

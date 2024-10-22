@@ -1,0 +1,28 @@
+{
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "edad": 30,
+    "fecha_nacimiento": "1994-05-10",
+    "lugar_nacimiento": "Bogotá",
+    "diagnostico": "Asma",
+    "escolarizado": true,
+    "institucion": "Colegio Nacional",
+    "jornada": "Mañana",
+    "curso": "5to",
+    "eps": "Salud Total",
+    "terapias": true,
+    "donde": "Clínica de Respiración",
+    "cuidador1_nombre": "Ana Pérez",
+    "cuidador1_edad": 45,
+    "identificacion_cuidador1": "123456789",
+    "ocupacion_cuidador1": "Ama de casa",
+    "cuidador2_nombre": "Carlos Pérez",
+    "cuidador2_edad": 50,
+    "identificacion_cuidador2": "987654321",
+    "ocupacion_cuidador2": "Ingeniero",
+    "barrio": "Chapinero",
+    "direccion": "Calle 123 #45-67",
+    "telefono_fijo": "1234567",
+    "telefono_celular": "321654987"
+  }
+  

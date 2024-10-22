@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+.section-form {
+  position: relative;
+  max-width: 600px; /* Disminuido el ancho máximo */
+  width: 100%;
+  background: #ffffff;
+  padding: 20px; /* Reducción del padding */
+  border-radius: 10px; /* Bordes más redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  margin: 20px auto; /* Centrado automático */
+}
+
+.section-form header {
+  font-size: 1.4rem; /* Tamaño de fuente más pequeño */
+  color: #444444; /* Color ligeramente más claro */
+  font-weight: 600; /* Peso de fuente más destacado */
+  text-align: center;
+  margin-bottom: 15px; /* Espacio inferior reducido */
+}
+
+.section-form .form {
+  margin-top: 15px; /* Reducción del margen superior */
+}
+
+.form .input-box {
+  width: 100%;
+  margin-top: 15px; /* Margen superior reducido */
+}
+
+.input-box label {
+  color: #444444; /* Color más suave */
+  font-weight: 500; /* Peso de fuente más ligero */
+}
+
+.form .input-box input,
+.form .input-box select {
+  height: 40px; /* Altura del input reducida */
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  color: #555555; /* Color de texto más oscuro */
+  margin-top: 6px; /* Margen superior reducido */
+  border: 1px solid #cccccc; /* Borde más claro */
+  border-radius: 6px; /* Bordes más redondeados */
+  padding: 0 10px; /* Espaciado interno reducido */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición para el borde */
+}
+
+.form .input-box input:focus,
+.form .input-box select:focus {
+  border-color: #4caf50; /* Color del borde al enfocar */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); /* Sombra sutil al enfocar */
+}
+
+.form .column {
+  display: flex;
+  column-gap: 10px; /* Espacio entre columnas reducido */
+}
+
+.form .button {
+  background-color: #4caf50; /* Color de fondo verde */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno reducido */
+  text-align: center; /* Centrado del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Ajustar el botón en línea */
+  font-size: 0.9rem; /* Tamaño de la fuente reducido */
+  margin: 15px 0; /* Margen superior e inferior reducido */
+  cursor: pointer; /* Cursor de mano */
+  border-radius: 6px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.form .button:hover {
+  background-color: #45a049; /* Color más oscuro al pasar el ratón */
+  transform: scale(1.03); /* Efecto de escala al pasar el ratón */
+}
+
+/* Responsive */
+
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+}
