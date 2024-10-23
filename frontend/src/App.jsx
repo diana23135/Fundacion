@@ -4,7 +4,7 @@ import { Login } from "./views/Login/Login";
 import { Register } from "./views/Register/Register";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer} from "react-toastify";
-import { Formulario } from "./views/utils/Form/Form";
+import { Formulario } from "./views/utils/Formulario/Formulario";
 import React, { useEffect, useState } from "react";
 
 export function App() {
