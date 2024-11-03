@@ -21,9 +21,11 @@ export function Formulario({ formulario }) {
 
   return (
     <>
-      <Nav />
-
+    <Nav />
+      
       <form className="form" onSubmit={handleSubmit}>
+      <h3>FUNDACIÓN MONSEÑOR VALENZUELA BALÉN PARA NIÑOS DESAMPARADOS</h3>
+      <br></br>
         {formulario ? (
           Object.keys(formulario).map((sectionKey) => {
             const section = formulario[sectionKey];

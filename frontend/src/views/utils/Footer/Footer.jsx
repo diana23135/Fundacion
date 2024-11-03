@@ -35,20 +35,20 @@ export function Footer() {
           <ul>
             <li>
               <FaEnvelope />{" "}
-              <a href="mailto:RealXpress@proyecto.com">
-                RealXpress@proyecto.com
+              <a href="mailto:Ejemplo@gmail.com">
+                Ejemplo@gmail.com
               </a>
             </li>
             <li>
               <FaEnvelope />{" "}
-              <a href="mailto:SoporteReal@proyecto.com">
-                SoporteReal@proyecto.com
+              <a href="mailto:Soporte@gmail.com">
+                Soporte@gmail.com
               </a>
             </li>
             <li>
               <FaEnvelope />{" "}
-              <a href="mailto:generancia@proyecto.com">
-                generancia@proyecto.com
+              <a href="mailto:generancia@gmail.com">
+                generancia@gmail.com
               </a>
             </li>
           </ul>
