@@ -5,7 +5,7 @@
   --color-light: #e0f2fe; /* Celeste suave */
   --color-background: #f3f4f6; /* Gris muy claro */
   --color-neutral: #f9fafb; /* Blanco suave */
-  --color-gris: #444444 ;
+  --color-gris: #444444;
 }
 .form {
   margin-top: 100px !important;
@@ -23,7 +23,7 @@
   padding: 5px;
   margin-bottom: 15px; /* Espacio entre los inputs */
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .column-container {
@@ -45,7 +45,7 @@
   height: 30px;
   width: 100%;
   outline: none;
-  font-size: 75% !important;
+  font-size: 13px !important;
   color: #555555;
   margin-top: 6px;
   border: 1px solid #cccccc;
@@ -97,16 +97,38 @@ legend {
   font-weight: bold;
   padding: 0 10px; /* Espacio alrededor del texto de la leyenda */
 }
-.titulo{
+.titulo {
   color: #555555;
   font-size: 13px;
   text-align: center;
 }
-.img-little{
-display: flex;
-align-items: center;
-justify-content: space-around;
+.img-little {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.icono-form{
+.icono-form {
   width: 120px;
+}
+select {
+  margin-top: 6px;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #f8f9fa; /* Color de fondo */
+  color: #495057; /* Color del texto */
+  font-size: 13px; /* Tamaño de fuente */
+  padding: 5px;
+  transition: border-color 0.3s, background-color 0.3s; /* Transición suave */
+  appearance: none; /* Elimina la apariencia predeterminada del navegador */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="%23007bff" d="M7 10l5 5 5-5H7z"/></svg>'); /* Icono de flecha */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Posición del icono */
+  background-size: 15px; /* Tamaño del icono */
+}
+
+select:focus {
+  border-color: #0056b3; /* Color del borde al enfocar */
+  background-color: #e9ecef; /* Color de fondo al enfocar */
+  outline: none; /* Elimina el contorno predeterminado */
 }

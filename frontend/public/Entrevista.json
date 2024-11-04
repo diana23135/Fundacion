@@ -113,7 +113,9 @@
       "type": "text",
       "placeholder": "Ingrese dónde",
       "id": "donde"
-    },
+    }
+  },
+  "Medidas": {
     "talla_zapatos": {
       "label": "Talla de zapatos",
       "type": "text",
@@ -137,20 +139,24 @@
       "type": "number",
       "placeholder": "Ingrese etapa del pañal",
       "id": "etapa"
-    },
-    "obs_expectativas": {
-      "label": "¿Qué expectativas tiene usted frente al tratamiento de su hijo/a durante la permanencia en el centro?",
-      "type": "text",
-      "placeholder": "Ingrese sus expectativas",
-      "id": "obs_expectativas"
-    },
-    "areas_interes": {
-      "label": "¿Cuáles son las áreas de interés a trabajar con su hijo/a?",
-      "type": "text",
-      "placeholder": "Ingrese áreas de interés",
-      "id": "areas_interes"
     }
   },
+  "Expectativas": {
+    "expectivas": {
+    "label": "¿Qué expectativas tiene usted frente al tratamiento de su hijo/a durante la permanencia en el centro?",
+    "type": "text",
+    "placeholder": "Ingrese sus expectativas",
+    "id": "obs_expectativas"
+    },
+
+    "areas_interes": {
+    "label": "¿Cuáles son las áreas de interés a trabajar con su hijo/a?",
+    "type": "text",
+    "placeholder": "Ingrese áreas de interés",
+    "id": "areas_interes"
+  }
+  },
+
   "Acudiente 1": {
     "cuidador1_nombre": {
       "label": "Nombre del cuidador",
@@ -243,7 +249,7 @@
       "placeholder": "Seleccione el tipo de identificación",
       "id": "cuidador2_tipo_identificacion"
     },
-    "ocupacion_cuidador2": {
+    "ocupacion2": {
       "label": "Ocupación",
       "type": "text",
       "placeholder": "Ingrese la ocupación",
@@ -261,24 +267,24 @@
       "id": "parentesco_cuidador2"
     }
   },
-  "Datos contacto": {
+  "Datos de contacto": {
     "telefono1": {
-      "label": "Teléfono 1",
-      "type": "number",
-      "placeholder": "Ingrese el teléfono 1",
+      "label": "Teléfono de contacto 1",
+      "type": "text",
+      "placeholder": "Ingrese el teléfono de contacto",
       "id": "telefono1"
     },
     "telefono2": {
-      "label": "Teléfono 2",
-      "type": "number",
-      "placeholder": "Ingrese el teléfono 2",
+      "label": "Teléfono de contacto 2",
+      "type": "text",
+      "placeholder": "Ingrese el teléfono de contacto",
       "id": "telefono2"
     },
-    "correo": {
-      "label": "Correo electrónico",
+    "email": {
+      "label": "Email",
       "type": "email",
       "placeholder": "Ingrese su correo electrónico",
-      "id": "correo"
+      "id": "email"
     },
     "direccion": {
       "label": "Dirección",
