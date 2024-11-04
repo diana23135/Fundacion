@@ -2,11 +2,12 @@ import { useState } from "react";
 import "./Formulario.css";
 import { Nav } from "../Nav/Nav";
 import { Footer } from "../Footer/Footer";
-
+import { useNavigate } from "react-router-dom";
 export function Formulario({ formulario }) {
   const [formValues, setFormValues] = useState({});
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
+    
     const { id, value, type, checked } = event.target;
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -26,7 +27,7 @@ export function Formulario({ formulario }) {
       body: JSON.stringify(formValues),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => navigate('/inicio'))
       .catch((error) => console.log(error));
        
   };

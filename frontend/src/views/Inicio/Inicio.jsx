@@ -14,20 +14,23 @@ export function Inicio() {
   const navigate = useNavigate(); // Inicializa useNavigate
 
   useEffect(() => {
-    fetch("/datos.json")
+
+   
+   
+    fetch("/paciente/get-all",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json", // Especifica el tipo de contenido para JSON
+      }})
       .then((response) => response.json())
-      .then((data) => setDatos(data))
+      .then((response) => {
+        console.log(response.data);
+        
+        
+        setDatos(response.data)})
       .catch((error) => console.error("Error al cargar los datos:", error));
   }, []);
 
-  const [registro, setRegistro] = useState([]);
-
-  useEffect(() => {
-    fetch("/registro.json")
-      .then((response) => response.json())
-      .then((data) => setRegistro(data))
-      .catch((error) => console.error("Error al cargar los datos:", error));
-  }, []);
 
   // Función para manejar la navegación al formulario
   const handleCrearBeneficiario = () => {

@@ -24,16 +24,18 @@ router.get("/", async (req, res) => {
 router.get("/get-all", async (req, res) => {
     try {
 
+        const pacientes_all = await pacientes.obtenerPacientes();
+        console.log(pacientes_all);
         return res.status(200).json({
             success : true,
             message : "se obtuvo con exito la informacion",
-            data : null,
+            data : pacientes_all,
         })
     }
     catch (error){
         return res.status(500).json({
             success: false,
-            message : "Ocurrio un error al obtener acudientes",
+            message : "Ocurrio un error al obtener pacientes",
             error: error.message
         })
     }
