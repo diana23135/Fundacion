@@ -44,8 +44,8 @@ perfil.hasMany(tablaParametro, { foreignKey: 'fk_perfil' });
 tablaParametro.belongsTo(perfil, { foreignKey: 'fk_perfil' });
 
 // Relación entre paciente, acudiente y especialista
-acudiente.hasMany(paciente, { foreignKey: 'fk_acudiente' });
-paciente.belongsTo(acudiente, { foreignKey: 'fk_acudiente' });
+paciente.hasMany(acudiente, { foreignKey: 'fk_paciente' });
+acudiente.belongsTo(paciente, { foreignKey: 'fk_paciente' });
 
 // Relación entre cita y otros modelos
 paciente.hasMany(cita, { foreignKey: 'fk_paciente' });

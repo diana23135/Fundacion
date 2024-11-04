@@ -2,7 +2,7 @@ const Paciente  = require('../models/Pacientes');
 const acudiente_controller  = require('./acudiente_controller');
 const usuario_controller  = require('./usuario_controller');
 const condiciones_controller  = require('./condicionesEspeciales_controller');
-
+const edad  = require('./utils/calcular_edad');
 
 const obtenerPacientes = async () => {
     return await Paciente.findAll();
@@ -10,7 +10,8 @@ const obtenerPacientes = async () => {
 
 const pacienteExist = async (numero)=>{
     const usuario = await Paciente.findOne({
-        where: { num_identidad: numero } // Cambia `email` por el campo único que desees verificar
+        where: { num_identidad: numero } 
+
       });
       if (usuario) {
         console.log('El usuario ya existe:', usuario);
@@ -18,107 +19,138 @@ const pacienteExist = async (numero)=>{
       }
       return false;
 }
-
 const crearPacientes = async (data) => {
+    let fk_acudiente, fk_acudiente2, usuario, acudiente_data, paciente;
 
-    let fk_acudiente; 
-    let fk_acudiente2;
-    let user;
-    let acudiente_data;
-    const location = {
-        barrio: data.barrio,
-        direccion: data.direccion,
-        tel_fijo: data.telefono_fijo,
-        tel_celular: data.telefono_celular,
-        
-    }
+    try {
+       
+        // Check if patient already exists
+        paciente = await pacienteExist(data.num_identificacion);
+        if (paciente) {
+            return paciente; // If patient exists, return it immediately
+        }
+       
+       
+        try {
+            usuario = await usuario_controller.crearUsuarios();
+        } catch (error) {
+            console.error("Error creating user for patient:", error);
+         //   throw new Error("Failed to create user for patient.");
+        }
 
-    // si un paciente no existe, no existe el usuario 
-
-    fk_acudiente = acudiente_controller.AcudienteExist(data.identificacion_cuidador1);
-
-    fk_acudiente2 = acudiente_controller.AcudienteExist(data.identificacion_cuidador1);
-    
-    if(!fk_acudiente){
-        user = usuario_controller.crearUsuarios();
-        acudiente_data = {
-            num_identidad:data.identificacion_cuidador1 ,
-            nombre: data.nombre_cuidador1,
-            apellido: data.apellido_cuidador1,
-            edad:data.edad_cuidador1,
-            fecha_nacimiento: null, //no se pregunta esto en el formulario de ingreso
-            lugar_nacimiento: null,//no se pregunta esto en el formulario de ingreso
-            ...location,
-            fk_usuario: user.id_usuario,
-            parentesco: data.parentesco_cuidador1,
-            correo_electronico: data.correo,
+        // Location data
+        const location = {
+            barrio: data.barrio,
+            direccion: data.direccion,
+            tel_fijo: data.telefono_fijo,
+            tel_celular: data.telefono_celular,
         };
-        acudiente_controller.crearAcudiente(acudiente_data);
-    }
-    if(!fk_acudiente2){
 
-//     "ocupacion_cuidador2": "sadsdas",
-        user = usuario_controller.crearUsuarios();
-        acudiente_data = {
-            num_identidad:data.identificacion_cuidador2 ,
-            nombre: data.nombre_cuidador2,
-            apellido: data.apellido_cuidador2,
-            edad:data.edad_cuidador2,
-            fecha_nacimiento: null, //no se pregunta esto en el formulario de ingreso
-            lugar_nacimiento: null,//no se pregunta esto en el formulario de ingreso
+       
+
+        // Patient data
+        const paciente_data = {
+            num_identidad: data.num_identificacion,
+            tipo_identificacion: data.tipo_identificacion,
+            nombre: data.nombre,
+            apellido: data.apellido,
+            edad: edad.calcularEdad(data.fecha_nacimiento),
+            fecha_nacimiento: data.fecha_nacimiento,
+            lugar_nacimiento: data.lugar_nacimiento,
+            sexo:data.sexo,
             ...location,
-            fk_usuario: user.id_usuario,
-            parentesco: data.parentesco_cuidador2,
-            correo_electronico: data.correo,
+            fk_usuario: usuario.id_usuario,
+            diagnostico: data.diagnostico,
+            escolarizado: data.escolarizado,
+            nom_institucion: data.institucion,
+            jornada: data.jornada,
+            curso: data.curso,
+            eps: data.eps,
+            terapias: data.terapias,
+            donde: data.donde,
+            talla_zapatos: data.talla_zapatos,
+            talla_sudadera: data.talla_sudadera,
+            util_panial: data.util_panial,
+            etapa: data.etapa,
+            obs_expectativas: data.obs_expectativas,
+            areas_interes: data.areas_interes,
         };
-        acudiente_controller.crearAcudiente(acudiente_data);
+        // Create the patient
+        try {
+            paciente = await Paciente.create(paciente_data);
+        } catch (error) {
+            console.error("Error creating patient:", error);
+          //  throw new Error("Failed to create patient.");
+        }
+
+
+
+        // Check and create first guardian (acudiente)
+        try {
+            fk_acudiente2 = await acudiente_controller.AcudienteExist(data.cuidador2_identificacion);
+            if (!fk_acudiente2) {
+                const acudiente_user2 = await usuario_controller.crearUsuarios();
+                acudiente_data = {
+                    num_identidad: data.cuidador2_identificacion,
+                    tipo_identificacion: data.cuidador2_tipo_identificacion,
+                    nombre: data.nombre_cuidador2,
+                    apellido: data.apellido_cuidador2,
+                    edad: edad.calcularEdad(data.cuidador2_fecha_nacimiento),
+                    fecha_nacimiento:data.cuidador2_fecha_nacimiento,
+                    ...location,
+                    fk_usuario: acudiente_user2.id_usuario,
+                    parentesco: data.parentesco_cuidador2,
+                    ocupacion: data.ocupacion_cuidador2,
+                    correo_electronico: data.correo,
+                    fk_paciente: paciente.id_paciente,
+                };
+                await acudiente_controller.crearAcudiente(acudiente_data);
+            }
+        } catch (error) {
+            console.error("Error checking or creating first guardian (acudiente):", error);
+           // throw new Error("Failed to create first guardian.");
+        }
+
+        // Check and create first guardian (acudiente)
+        try {
+            fk_acudiente = await acudiente_controller.AcudienteExist(data.cuidador1_identificacion);
+            if (!fk_acudiente) {
+                const acudiente_user1 = await usuario_controller.crearUsuarios();
+                acudiente_data = {
+                    num_identidad: data.cuidador1_identificacion,
+                    tipo_identificacion: data.cuidador1_tipo_identificacion,
+                    nombre: data.nombre_cuidador1,
+                    apellido: data.apellido_cuidador1,
+                    edad: edad.calcularEdad(data.cuidador1_fecha_nacimiento),
+                    fecha_nacimiento:data.cuidador1_fecha_nacimiento,
+                    ...location,
+                    fk_usuario: acudiente_user1.id_usuario,
+                    parentesco: data.parentesco_cuidador1,
+                    ocupacion: data.ocupacion_cuidador1,
+                    correo_electronico: data.correo,
+                    fk_paciente: paciente.id_paciente,
+                };
+                await acudiente_controller.crearAcudiente(acudiente_data);
+            }
+        } catch (error) {
+            console.error("Error checking or creating first guardian (acudiente):", error);
+           // throw new Error("Failed to create first guardian.");
+        }
+
+        return paciente;
+
+    } catch (error) {
+        console.error("Error in crearPacientes function:", error);
+      //  throw new Error("Failed to create patient and guardians.");
     }
-        acudiente_controller.crearAcudiente(acudiente);
-    
-
-
-
-    /** 
-     * agregar logica de fotos 
-     * verificar acudiente 
-     * insertar acudiente 
-     * obtener fk
-     * 
-     * verificar paciente 1 - 2  hacer el objeto de cada registro
-     * insertar paciente 
-     * obtener fk
-     * 
-     *  */ 
-    
-//    ss  =  {
-//     "nombre": "asdsad",
-//     "apellido": "asdasd",
-//     "lugar_nacimiento": "asdasd",
-//     "diagnostico": "sdasd",
-//     "escolarizado": true,
-//     "institucion": "asdas",
-//     "jornada": "asdas",
-//     "curso": "dasdas",
-//     "eps": "dasda",
-//     "terapias": true,
-//     "donde": "sdasd",
-//     
-
-
-    // "fecha_nacimiento": "2222-03-12",
-    //     "edad": "111"
-// }
-
-
-
-
-
-
-
-
-
-    return await Paciente.create(data);
 };
+
+
+
+  /** 
+     * agregar logica de fotos 
+     *  */ 
+
 
 const actualizarPacientes = async (id, data) => {
     const paciente = await Paciente.findByPk(id);

@@ -1,22 +1,18 @@
-
 :root {
-  --color1: #FFC107;
-  --color2: #FFEB3B;
-  --color3: #CC29E8;
-  --color4: #795548;
-  --color5: #4CAF50;
-  --color6: #B2FF59;
-  --color7: white;
-  --color8: black;
+  --color-primary: #1e3a8a; /* Azul oscuro */
+  --color-secondary: #3b82f6; /* Azul brillante */
+  --color-accent: #60a5fa; /* Azul claro */
+  --color-light: #e0f2fe; /* Celeste suave */
+  --color-background: #f3f4f6; /* Gris muy claro */
+  --color-neutral: #f9fafb; /* Blanco suave */
 }
-
 
 /* Contenedor principal del footer */
 .footer-container {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(33, 33, 33, 0.8);
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-neutral);
   padding: 40px;
   flex-wrap: wrap;
 }
@@ -25,7 +21,7 @@
 .footer-section {
   flex: 1;
   margin: 0 20px;
-  min-width: 200px; /* Asegura un mínimo ancho en pantallas pequeñas */
+  min-width: 200px;
 }
 
 /* Títulos de las secciones del footer */
@@ -34,7 +30,7 @@
   margin-bottom: 15px;
   text-transform: uppercase;
   font-weight: bold;
-  border-bottom: 2px solid var(--color5); /* Línea decorativa bajo el título */
+  border-bottom: 2px solid var(--color-secondary);
   padding-bottom: 10px;
 }
 
@@ -47,24 +43,24 @@
 .footer-section ul li {
   margin-bottom: 10px;
   display: flex;
-  align-items: center; /* Alinea el icono con el texto */
+  align-items: center;
 }
 
 .footer-section ul li a {
-  color: #ecf0f1;
+  color: var(--color-light);
   text-decoration: none;
-  margin-left: 8px; /* Espacio entre el icono y el texto */
+  margin-left: 8px;
   transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-  color: var(--color5);
+  color: var(--color-accent);
 }
 
 /* Estilo para los iconos de redes sociales */
 .social-icons {
   display: flex;
-  gap: 15px; /* Espacio entre los iconos */
+  gap: 15px;
 }
 
 .social-icons li {
@@ -72,26 +68,28 @@
 }
 
 .social-icons a {
-  color: white;
+  color: var(--color-neutral);
   font-size: 24px;
   transition: transform 0.3s ease;
 }
 
 .social-icons a:hover {
   transform: scale(1.1);
+  color: var(--color-secondary);
 }
 
 /* Estilo para la parte inferior del footer */
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
-  border-top: 1px solid #7f8c8d;
+  border-top: 1px solid var(--color-light);
   padding-top: 20px;
 }
 
 .footer-bottom p {
   margin: 5px 0;
   font-size: 14px;
+  color: var(--color-neutral);
 }
 
 /* Estilos responsivos */

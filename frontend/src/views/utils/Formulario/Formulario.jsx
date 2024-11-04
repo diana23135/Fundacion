@@ -16,14 +16,31 @@ export function Formulario({ formulario }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted with values:", formValues);
+    console.log(formValues);
+       
+    fetch("/paciente", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Especifica el tipo de contenido para JSON
+      },
+      body: JSON.stringify(formValues),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+       
   };
 
   return (
     <>
-      <Nav />
-
+    <Nav />
+      
       <form className="form" onSubmit={handleSubmit}>
+      <div className="img-little">
+      <h3 className="titulo">FUNDACIÓN MONSEÑOR VALENZUELA BALÉN PARA NIÑOS DESAMPARADOS</h3>
+      <img className="icono-form" src="./formularios.png"></img>
+      </div>
+      <br></br>
         {formulario ? (
           Object.keys(formulario).map((sectionKey) => {
             const section = formulario[sectionKey];

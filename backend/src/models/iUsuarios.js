@@ -1,6 +1,10 @@
 const { DataTypes } = require("sequelize");
 
 const usuarios = {
+  tipo_identificacion: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   num_identidad: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -25,7 +29,7 @@ const usuarios = {
   },
   lugar_nacimiento: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   direccion: {
     type: DataTypes.STRING,

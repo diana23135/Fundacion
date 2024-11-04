@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router(); // creo el objeto de tipo router
 
-
+const pacientes = require('../controllers/paciente_controller');
 
 
 router.get("/", async (req, res) => {
@@ -76,24 +76,31 @@ router.put("/", async (req, res) => {
 
 
 
-router.post("/create-beneficiario", async (req, res) => {
-     
+router.post("/", async (req, res) => {
+
+
+    
     try {
 
+        const paciente = await pacientes.crearPacientes(req.body);
+        
+
         return res.status(200).json({
-            success : true,
-            message : "se obtuvo con exito la informacion",
-            data : null,
-        })
-    }
-    catch (error){
+            success: true,
+            message: "Información obtenida con éxito",
+            registro: paciente,
+        });
+    } catch (error) {
+    //     // Catch any errors from the crearPacientes function
+        console.error("Error in POST / route:", error);
         return res.status(500).json({
             success: false,
-            message : "Ocurrio un error al obtener informacion",
-            error: error.message
-        })
+            message: "Ocurrió un error al obtener información",
+            error: error.message,
+        });
     }
 });
+
 
 
 module.exports = router;

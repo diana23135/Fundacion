@@ -1,3 +1,12 @@
+:root {
+  --color-primary: #1e3a8a; /* Azul oscuro */
+  --color-secondary: #3b82f6; /* Azul brillante */
+  --color-accent: #60a5fa; /* Azul claro */
+  --color-light: #e0f2fe; /* Celeste suave */
+  --color-background: #f3f4f6; /* Gris muy claro */
+  --color-neutral: #f9fafb; /* Blanco suave */
+  --color-gris: #444444 ;
+}
 .form {
   margin-top: 100px !important;
   position: relative;
@@ -47,12 +56,12 @@
 
 .form .input-box input:focus,
 .form .input-box select:focus {
-  border-color: #4caf50;
+  border-color: var(--color-gris);
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .form .button {
-  background-color: #4caf50;
+  background-color: var(--color-primary);
   border: none;
   color: white;
   padding: 10px 20px;
@@ -66,7 +75,7 @@
 }
 
 .form .button:hover {
-  background-color: black;
+  background-color: var(--color-secondary);
   transform: scale(1.03);
 }
 
@@ -87,4 +96,17 @@ fieldset {
 legend {
   font-weight: bold;
   padding: 0 10px; /* Espacio alrededor del texto de la leyenda */
+}
+.titulo{
+  color: #555555;
+  font-size: 13px;
+  text-align: center;
+}
+.img-little{
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+.icono-form{
+  width: 120px;
 }

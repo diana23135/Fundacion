@@ -10,6 +10,10 @@ const Paciente = sequelize.define("Pacientes", {
     primaryKey: true, // Clave primaria
   },
   ...usuarios,
+  sexo:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   diagnostico: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -50,7 +54,7 @@ const Paciente = sequelize.define("Pacientes", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  util_pañal: {
+  util_panial: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
@@ -66,15 +70,7 @@ const Paciente = sequelize.define("Pacientes", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  fk_acudiente: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'Acudientes', // Referencia al modelo Acudientes
-      key: 'id_acudiente', // La clave primaria del modelo Acudientes
-    },
-   
-    
-  }
+ 
 });
 
 module.exports = Paciente;

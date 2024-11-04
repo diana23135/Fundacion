@@ -14,12 +14,21 @@ const Acudiente = sequelize.define("Acudientes", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  correo_electronico: {
+  ocupacion: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-
-
+  correo_electronico: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  fk_paciente: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Pacientes', // Referencia al modelo Acudientes
+      key: 'id_paciente', // La clave primaria del modelo Acudientes
+    },
+  }
 
 });
 
