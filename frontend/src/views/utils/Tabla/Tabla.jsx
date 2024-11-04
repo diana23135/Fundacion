@@ -54,6 +54,7 @@ export const Tabla = ({ datos }) => {
         </tbody>
       </table>
 
+
       <div className="paginacion">
         <button
           onClick={() => cambiarPagina(paginaActual - 1)}
