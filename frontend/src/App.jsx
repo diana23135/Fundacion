@@ -14,7 +14,7 @@ export function App() {
   const [Registro, setRegistro] = useState([]);
 
   useEffect(() => {
-    fetch("/Entrevista.json")
+    fetch("public/templates/Entrevista.json")
       .then((response) => response.json())
       .then((data) => setEntrevista(data))
       .catch((error) => console.error("Error al cargar los datos:", error));

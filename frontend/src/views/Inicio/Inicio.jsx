@@ -6,7 +6,7 @@ import { Nav } from "../utils/Nav/Nav";
 import { Contadores } from "../utils/Contadores/Contadores";
 import { Buscadores } from "../utils/Buscadores/Buscadores";
 import { Tabla } from "../utils/Tabla/Tabla";
-import { VisualizarRegistro } from "../VisualizarRegistro/VisualizarRegistro";
+
 
 
 export function Inicio() {
