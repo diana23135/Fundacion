@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Tabla.css";
+import { BotonAcciones } from "../BotonAcciones/BotonAcciones";
 
 export const Tabla = ({ datos }) => {
   const [paginaActual, setPaginaActual] = useState(1);
@@ -46,7 +47,7 @@ export const Tabla = ({ datos }) => {
                 <td key={cabecera}>{fila[cabecera]}</td>
               ))}
               <td>
-                <button className="accion-button">⋮</button>
+                <BotonAcciones/>
               </td>
             </tr>
           ))}

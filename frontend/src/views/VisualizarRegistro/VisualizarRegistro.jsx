@@ -1,5 +1,7 @@
 import React from "react";
 import "./VisualizarRegistro.css";
+import { Nav } from "../utils/Nav/Nav";
+import { Footer } from "../utils/Footer/Footer";
 
 export const VisualizarRegistro = ({ registro }) => {
   if (!registro) {
@@ -7,6 +9,8 @@ export const VisualizarRegistro = ({ registro }) => {
   }
 
   return (
+    <>
+    <Nav/>
     <div className="visualizar-container">
       <h2 className="titulo-reg">Información del Beneficiario</h2>
       <p>
@@ -128,5 +132,7 @@ export const VisualizarRegistro = ({ registro }) => {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };

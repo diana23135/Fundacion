@@ -42,7 +42,7 @@ export function Inicio() {
         <Contadores onCrearBeneficiario={handleCrearBeneficiario} />{" "}
         {/* Pasa la función como prop */}
         <Tabla datos={datos} />
-        <VisualizarRegistro registro={registro} />
+  
       </main>
       <Footer />
     </>
