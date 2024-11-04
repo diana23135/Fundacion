@@ -269,16 +269,16 @@
   },
   "Datos de contacto": {
     "telefono1": {
-      "label": "Teléfono de contacto 1",
+      "label": "Teléfono fijo",
       "type": "text",
       "placeholder": "Ingrese el teléfono de contacto",
-      "id": "telefono1"
+      "id": "telefono_fijo"
     },
     "telefono2": {
-      "label": "Teléfono de contacto 2",
+      "label": "Teléfono celular",
       "type": "text",
       "placeholder": "Ingrese el teléfono de contacto",
-      "id": "telefono2"
+      "id": "telefono_celular"
     },
     "email": {
       "label": "Email",
