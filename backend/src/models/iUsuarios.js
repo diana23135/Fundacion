@@ -5,22 +5,16 @@ const usuarios = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  primer_nombre: {
+  nombre: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  segundo_nombre: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  primer_apellido: {
+  
+ apellido: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  segundo_apellido: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
+
   edad: {
     type: DataTypes.INTEGER,
     allowNull: false,

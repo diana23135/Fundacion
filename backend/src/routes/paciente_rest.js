@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router(); // creo el objeto de tipo router
 
+
+
+
 router.get("/", async (req, res) => {
     try {
 
@@ -70,7 +73,11 @@ router.put("/", async (req, res) => {
         })
     }
 });
-router.post("/", async (req, res) => {
+
+
+
+router.post("/create-beneficiario", async (req, res) => {
+     
     try {
 
         return res.status(200).json({
@@ -87,4 +94,6 @@ router.post("/", async (req, res) => {
         })
     }
 });
+
+
 module.exports = router;

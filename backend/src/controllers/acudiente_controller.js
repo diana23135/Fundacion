@@ -1,5 +1,16 @@
 const  Acudiente = require('../models/Acudiente'); 
 
+const AcudienteExist = async (numero)=>{
+    const existe = await Acudiente.findOne({
+        where: { num_identidad: numero } // Cambia `email` por el campo único que desees verificar
+      });
+      if (existe) {
+        console.log('El usuario ya existe:', existe);
+        return existe.id_acudiente;
+      }
+      return null;
+}
+
 const obtenerAcudiente = async () => {
     return await Acudiente.findAll();
 };
@@ -26,8 +37,9 @@ const borrarAcudiente = async (id) => {
 };
 
 module.exports = {
-     obtenerAcudiente,
-     crearAcudiente,
-     actualizarAcudiente,
-     borrarAcudiente,
+    AcudienteExist,
+    obtenerAcudiente,
+    crearAcudiente,
+    actualizarAcudiente,
+    borrarAcudiente,
 };
