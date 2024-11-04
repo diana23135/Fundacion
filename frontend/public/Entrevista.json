@@ -286,6 +286,12 @@
       "placeholder": "Ingrese su correo electrónico",
       "id": "email"
     },
+    "barrio": {
+      "label": "Barrio",
+      "type": "text",
+      "placeholder": "Ingrese el barrio",
+      "id": "barrio"
+    },
     "direccion": {
       "label": "Dirección",
       "type": "text",
