@@ -1,6 +1,5 @@
 {
   "ENTREVISTA DE INGRESO": {
-
     "foto": {
       "label": "Subir foto",
       "type": "file",
@@ -23,16 +22,21 @@
     },
     "tipo_identificacion": {
       "label": "Tipo de Identificación",
-      "type": "text",
-      "placeholder": "Ingrese su tipo de identificacion",
+      "type": "select",
+      "options": [
+        { "value": "cc", "label": "Cédula de Ciudadanía" },
+        { "value": "ti", "label": "Tarjeta de Identidad" },
+        { "value": "ce", "label": "Cédula de Extranjería" },
+        { "value": "pasaporte", "label": "Pasaporte" }
+      ],
+      "placeholder": "Seleccione el tipo de identificación",
       "id": "tipo_identificacion"
     },
     "num_identificacion": {
-      "label": "Numero de Identificación",
+      "label": "Número de Identificación",
       "type": "number",
-      "placeholder": "Ingrese su Numero de identificacion",
+      "placeholder": "Ingrese su número de identificación",
       "id": "num_identificacion"
-
     },
     "fecha_nacimiento": {
       "label": "Fecha Nacimiento",
@@ -46,14 +50,17 @@
       "placeholder": "Ingrese el lugar de nacimiento",
       "id": "lugar_nacimiento"
     },
-
     "sexo": {
       "label": "Sexo",
-      "type": "text",
-      "placeholder": "Ingrese su Sexo",
+      "type": "select",
+      "options": [
+        { "value": "masculino", "label": "Masculino" },
+        { "value": "femenino", "label": "Femenino" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "placeholder": "Seleccione el sexo",
       "id": "sexo"
     },
-
     "diagnostico": {
       "label": "Diagnóstico",
       "type": "text",
@@ -74,8 +81,13 @@
     },
     "jornada": {
       "label": "Jornada",
-      "type": "text",
-      "placeholder": "Ingrese la jornada",
+      "type": "select",
+      "options": [
+        { "value": "mañana", "label": "Mañana" },
+        { "value": "tarde", "label": "Tarde" },
+        { "value": "noche", "label": "Noche" }
+      ],
+      "placeholder": "Seleccione la jornada",
       "id": "jornada"
     },
     "curso": {
@@ -101,25 +113,23 @@
       "type": "text",
       "placeholder": "Ingrese dónde",
       "id": "donde"
-
     },
-
     "talla_zapatos": {
-      "label": "tallas de zapatos?",
+      "label": "Talla de zapatos",
       "type": "text",
       "placeholder": "Ingrese talla de zapatos",
       "id": "talla_zapatos"
-    } ,
-    "talla_sudadera":{
-      "label": "Talla de sudadera?",
+    },
+    "talla_sudadera": {
+      "label": "Talla de sudadera",
       "type": "text",
       "placeholder": "Ingrese talla de sudadera",
       "id": "talla_sudadera"
-    } ,
+    },
     "util_panial": {
       "label": "¿Utiliza Pañal?",
       "type": "checkbox",
-      "placeholder": "Ingrese si utiliza pañal",
+      "placeholder": "",
       "id": "util_panial"
     },
     "etapa": {
@@ -137,14 +147,10 @@
     "areas_interes": {
       "label": "¿Cuáles son las áreas de interés a trabajar con su hijo/a?",
       "type": "text",
-      "placeholder": "Ingrese Cuáles son las áreas de interés a trabajar",
+      "placeholder": "Ingrese áreas de interés",
       "id": "areas_interes"
     }
-
-
-    },
-
-  
+  },
   "Acudiente 1": {
     "cuidador1_nombre": {
       "label": "Nombre del cuidador",
@@ -152,7 +158,6 @@
       "placeholder": "Ingrese el nombre del cuidador",
       "id": "nombre_cuidador1"
     },
-
     "apellido_cuidador1": {
       "label": "Apellido",
       "type": "text",
@@ -162,7 +167,7 @@
     "cuidador1_fecha_nacimiento": {
       "label": "Fecha de nacimiento",
       "type": "date",
-      "placeholder": "Ingrese la Fecha de nacimiento",
+      "placeholder": "",
       "id": "cuidador1_fecha_nacimiento"
     },
     "cuidador1_identificacion": {
@@ -173,8 +178,14 @@
     },
     "cuidador1_tipo_identificacion": {
       "label": "Tipo de Identificación",
-      "type": "text",
-      "placeholder": "Ingrese su tipo de identificacion",
+      "type": "select",
+      "options": [
+        { "value": "cc", "label": "Cédula de Ciudadanía" },
+        { "value": "ti", "label": "Tarjeta de Identidad" },
+        { "value": "ce", "label": "Cédula de Extranjería" },
+        { "value": "pasaporte", "label": "Pasaporte" }
+      ],
+      "placeholder": "Seleccione el tipo de identificación",
       "id": "cuidador1_tipo_identificacion"
     },
     "ocupacion": {
@@ -182,14 +193,17 @@
       "type": "text",
       "placeholder": "Ingrese la ocupación",
       "id": "ocupacion_cuidador1"
-
     },
     "parentesco_cuidador1": {
       "label": "Parentesco",
-      "type": "text",
-      "placeholder": "Ingrese el parentesco",
+      "type": "select",
+      "options": [
+        { "value": "padre", "label": "Padre" },
+        { "value": "madre", "label": "Madre" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "placeholder": "Seleccione el parentesco",
       "id": "parentesco_cuidador1"
-
     }
   },
   "Acudiente 2": {
@@ -199,7 +213,6 @@
       "placeholder": "Ingrese el nombre del cuidador",
       "id": "nombre_cuidador2"
     },
-
     "apellido_cuidador2": {
       "label": "Apellido",
       "type": "text",
@@ -208,8 +221,8 @@
     },
     "cuidador2_fecha_nacimiento": {
       "label": "Fecha de nacimiento",
-      "type": "data",
-      "placeholder": "Ingrese la Fecha de nacimiento",
+      "type": "date",
+      "placeholder": "",
       "id": "cuidador2_fecha_nacimiento"
     },
     "cuidador2_identificacion": {
@@ -220,11 +233,17 @@
     },
     "cuidador2_tipo_identificacion": {
       "label": "Tipo de Identificación",
-      "type": "text",
-      "placeholder": "Ingrese su tipo de identificacion",
+      "type": "select",
+      "options": [
+        { "value": "cc", "label": "Cédula de Ciudadanía" },
+        { "value": "ti", "label": "Tarjeta de Identidad" },
+        { "value": "ce", "label": "Cédula de Extranjería" },
+        { "value": "pasaporte", "label": "Pasaporte" }
+      ],
+      "placeholder": "Seleccione el tipo de identificación",
       "id": "cuidador2_tipo_identificacion"
     },
-    "ocupacion": {
+    "ocupacion_cuidador2": {
       "label": "Ocupación",
       "type": "text",
       "placeholder": "Ingrese la ocupación",
@@ -232,35 +251,40 @@
     },
     "parentesco_cuidador2": {
       "label": "Parentesco",
-      "type": "text",
-      "placeholder": "Ingrese el parentesco",
+      "type": "select",
+      "options": [
+        { "value": "padre", "label": "Padre" },
+        { "value": "madre", "label": "Madre" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "placeholder": "Seleccione el parentesco",
       "id": "parentesco_cuidador2"
     }
   },
   "Datos contacto": {
-    "barrio": {
-      "label": "Barrio donde viven",
-      "type": "text",
-      "placeholder": "Ingrese el barrio",
-      "id": "barrio"
+    "telefono1": {
+      "label": "Teléfono 1",
+      "type": "number",
+      "placeholder": "Ingrese el teléfono 1",
+      "id": "telefono1"
+    },
+    "telefono2": {
+      "label": "Teléfono 2",
+      "type": "number",
+      "placeholder": "Ingrese el teléfono 2",
+      "id": "telefono2"
+    },
+    "correo": {
+      "label": "Correo electrónico",
+      "type": "email",
+      "placeholder": "Ingrese su correo electrónico",
+      "id": "correo"
     },
     "direccion": {
       "label": "Dirección",
       "type": "text",
-      "placeholder": "Ingrese la dirección",
+      "placeholder": "Ingrese su dirección",
       "id": "direccion"
-    },
-    "telefono_fijo": {
-      "label": "Telefono fijo",
-      "type": "text",
-      "placeholder": "Ingrese el teléfono fijo",
-      "id": "telefono_fijo"
-    },
-    "telefono_celular": {
-      "label": "Telefono celular",
-      "type": "text",
-      "placeholder": "Ingrese el teléfono celular",
-      "id": "telefono_celular"
     }
   }
 }
