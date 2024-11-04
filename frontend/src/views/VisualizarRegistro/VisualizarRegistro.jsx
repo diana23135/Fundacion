@@ -2,31 +2,48 @@ import React from "react";
 import "./VisualizarRegistro.css";
 
 export const VisualizarRegistro = ({ registro }) => {
-
-    if (registro && registro.length === 0) {
-        return <p>No hay datos disponibles para mostrar.</p>;
-      }
+  if (!registro) {
+    return <p>No hay datos disponibles para mostrar.</p>;
+  }
 
   return (
     <div className="visualizar-container">
+      <h2 className="titulo-reg">Información del Beneficiario</h2>
+      <p>
+        <strong>Fecha de Diligenciamiento:</strong>{" "}
+        {registro.fecha_diligenciamiento}
+      </p>
+
       <div className="columna">
         <h3>Información Personal</h3>
-        <p>
-          <strong>Nombre:</strong> {registro.nombre}
-        </p>
-        <p>
-          <strong>Apellido:</strong> {registro.apellido}
-        </p>
-        <p>
-          <strong>Edad:</strong> {registro.edad}
-        </p>
-        <p>
-          <strong>Fecha de Nacimiento:</strong> {registro.fecha_nacimiento}
-        </p>
-        <p>
-          <strong>Lugar de Nacimiento:</strong> {registro.lugar_nacimiento}
-        </p>
+        <div className="columna-1">
+          <div>
+            <p>
+              <strong>Nombre:</strong> {registro.nombre}
+            </p>
+            <p>
+              <strong>Apellido:</strong> {registro.apellido}
+            </p>
+            <p>
+              <strong>Edad:</strong> {registro.edad}
+            </p>
+            <p>
+              <strong>Fecha de Nacimiento:</strong> {registro.fecha_nacimiento}
+            </p>
+            <p>
+              <strong>Lugar de Nacimiento:</strong> {registro.lugar_nacimiento}
+            </p>
+          </div>
+          <div className="foto-container">
+            <img
+              src={registro.foto}
+              alt="Foto del beneficiario"
+              className="foto"
+            />
+          </div>
+        </div>
       </div>
+
       <div className="columna">
         <h3>Diagnóstico y Escolarización</h3>
         <p>
@@ -51,9 +68,6 @@ export const VisualizarRegistro = ({ registro }) => {
         <p>
           <strong>EPS:</strong> {registro.eps}
         </p>
-      </div>
-      <div className="columna">
-        <h3>Terapias</h3>
         <p>
           <strong>En Terapias:</strong> {registro.terapias ? "Sí" : "No"}
         </p>
@@ -63,6 +77,7 @@ export const VisualizarRegistro = ({ registro }) => {
           </p>
         )}
       </div>
+
       <div className="columna">
         <h3>Datos del Cuidador 1</h3>
         <p>
@@ -79,6 +94,7 @@ export const VisualizarRegistro = ({ registro }) => {
           <strong>Ocupación:</strong> {registro.ocupacion_cuidador1}
         </p>
       </div>
+
       <div className="columna">
         <h3>Datos del Cuidador 2</h3>
         <p>
@@ -95,6 +111,7 @@ export const VisualizarRegistro = ({ registro }) => {
           <strong>Ocupación:</strong> {registro.ocupacion_cuidador2}
         </p>
       </div>
+
       <div className="columna">
         <h3>Datos de Contacto</h3>
         <p>

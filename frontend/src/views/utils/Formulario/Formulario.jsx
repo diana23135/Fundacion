@@ -24,7 +24,10 @@ export function Formulario({ formulario }) {
     <Nav />
       
       <form className="form" onSubmit={handleSubmit}>
-      <h3>FUNDACIÓN MONSEÑOR VALENZUELA BALÉN PARA NIÑOS DESAMPARADOS</h3>
+      <div className="img-little">
+      <h3 className="titulo">FUNDACIÓN MONSEÑOR VALENZUELA BALÉN PARA NIÑOS DESAMPARADOS</h3>
+      <img className="icono-form" src="./formularios.png"></img>
+      </div>
       <br></br>
         {formulario ? (
           Object.keys(formulario).map((sectionKey) => {
