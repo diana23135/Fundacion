@@ -14,6 +14,7 @@ const usuarios = {
     allowNull: false,
   },
   
+  
  apellido: {
     type: DataTypes.STRING,
     allowNull: false,

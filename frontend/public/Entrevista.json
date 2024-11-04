@@ -1,6 +1,6 @@
 {
   "ENTREVISTA DE INGRESO": {
-    
+
     "foto": {
       "label": "Subir foto",
       "type": "file",
@@ -32,6 +32,7 @@
       "type": "number",
       "placeholder": "Ingrese su Numero de identificacion",
       "id": "num_identificacion"
+
     },
     "fecha_nacimiento": {
       "label": "Fecha Nacimiento",
@@ -100,6 +101,7 @@
       "type": "text",
       "placeholder": "Ingrese dónde",
       "id": "donde"
+
     },
 
     "talla_zapatos": {
@@ -140,9 +142,9 @@
     }
 
 
+    },
 
-
-  },
+  
   "Acudiente 1": {
     "cuidador1_nombre": {
       "label": "Nombre del cuidador",
@@ -150,6 +152,7 @@
       "placeholder": "Ingrese el nombre del cuidador",
       "id": "nombre_cuidador1"
     },
+
     "apellido_cuidador1": {
       "label": "Apellido",
       "type": "text",
@@ -179,12 +182,14 @@
       "type": "text",
       "placeholder": "Ingrese la ocupación",
       "id": "ocupacion_cuidador1"
+
     },
     "parentesco_cuidador1": {
       "label": "Parentesco",
       "type": "text",
       "placeholder": "Ingrese el parentesco",
       "id": "parentesco_cuidador1"
+
     }
   },
   "Acudiente 2": {
@@ -194,6 +199,7 @@
       "placeholder": "Ingrese el nombre del cuidador",
       "id": "nombre_cuidador2"
     },
+
     "apellido_cuidador2": {
       "label": "Apellido",
       "type": "text",
