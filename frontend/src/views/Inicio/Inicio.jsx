@@ -113,7 +113,7 @@ export function Inicio() {
     <>
       <main>
         <Nav />
-        <Buscadores />
+        {/* <Buscadores /> */}
         <Contadores  contadores = {contadores} />
         <Tabla datos={datos} />
   
