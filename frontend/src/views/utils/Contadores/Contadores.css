@@ -12,7 +12,7 @@
 
 /* Ajusta el contenedor de los contadores */
 .contadores {
-  flex-basis: 60%; /* Ajusta el ancho del 80% */
+  flex-basis: 80%; /* Ajusta el ancho del 80% */
   display: flex;
 }
 
@@ -46,28 +46,3 @@
   color: #007bff;
 }
 /* Estilo para el botón Crear Beneficiario */
-.crear-beneficiario {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-basis: 15%; /* Ocupa el 20% del ancho */
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px; /* Espaciado interno */
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-.crear-beneficiario:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-.crear-beneficiario svg {
-  margin-right: 10px;
-}

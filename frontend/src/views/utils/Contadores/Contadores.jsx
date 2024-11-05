@@ -5,7 +5,7 @@ import {
   FaUserCheck,
   FaClock,
   FaUserTimes,
-  FaPlus
+
 
 } from "react-icons/fa"; 
 import "./Contadores.css";
@@ -72,12 +72,7 @@ export const Contadores = ({contadores}) => {
           </div>
         ))}
       </div>
-      <button 
-        className="crear-beneficiario"
-        onClick={() => navigate('/formulario')} // Cambia '/formulario' a la ruta que tengas configurada para el formulario
-      >
-        <FaPlus size={20} color="#ffffff" /> Crear beneficiario
-      </button>
+      
     </section>
   );
 };

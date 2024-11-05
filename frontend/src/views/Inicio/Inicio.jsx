@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import "./Inicio.css";
 import { Footer } from "../utils/Footer/Footer";
 import { Nav } from "../utils/Nav/Nav";
-import { Contadores } from "../utils/Contadores/Contadores";
-import { Buscadores } from "../utils/Buscadores/Buscadores";
+
 import { Tabla } from "../utils/Tabla/Tabla";
 import { formatDate, isDate } from "../../scripts/date_format";
 
 export function Inicio() {
   const [datos, setDatos] = useState([]);
   const [contadores, setContadores] = useState([]);
-
+  const [titulo, setTitulo] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +29,9 @@ export function Inicio() {
         const data1 = await response1.json();
         const fields = data1.data.fields_default.split(',');
         const labels = data1.data.labels_default.split(',');
+        const titulo = data1.data.titulo;
+        setTitulo(titulo);
+
         // Guarda los campos obtenidos
   
         // Segunda llamada: Obtener pacientes
@@ -113,9 +115,9 @@ export function Inicio() {
     <>
       <main>
         <Nav />
-        {/* <Buscadores /> */}
-        <Contadores  contadores = {contadores} />
-        <Tabla datos={datos} />
+       
+       
+        <Tabla datos={datos} contadores={contadores} titulo ={titulo} />
   
       </main>
       <Footer />

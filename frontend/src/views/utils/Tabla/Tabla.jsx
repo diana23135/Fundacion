@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Tabla.css";
 import * as XLSX from "xlsx";
 import { SiMicrosoftexcel } from "react-icons/si";
 import { BotonAcciones } from "../BotonAcciones/BotonAcciones";
-
-export const Tabla = ({ datos }) => {
+import {FaPlus} from "react-icons/fa"; 
+import {Contadores} from '../Contadores/Contadores'
+import { useNavigate } from "react-router-dom";
+export const Tabla = ({ datos, contadores, titulo}) => {
   const [paginaActual, setPaginaActual] = useState(1);
   const [filtros, setFiltros] = useState({});
   const [aplicarFiltro, setAplicarFiltro] = useState(false);
   const filasPorPagina = 5;
-  console.log(datos);
-  (datos);
-  // Comprobación para evitar errores si 'datos' está vacío
-  if (datos && datos.length === 0) {
+  const navigate = useNavigate();
+  if (!datos || datos.length === 0) {
     return <p>No hay datos disponibles para mostrar.</p>;
   }
 
@@ -62,48 +62,95 @@ export const Tabla = ({ datos }) => {
     }
   };
 
+  // Función para manejar la descarga
+  const handleDownload = (event) => {
+    event.preventDefault();
 
+    const worksheet = XLSX.utils.json_to_sheet(datosFiltrados);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Registros");
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'registros.xlsx'; // Nombre del archivo
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
-
-    // Función para manejar la descarga
-    const handleDownload = (event) => {
-      event.preventDefault();
-  
-      if (datos) {
-          // Crea una hoja de cálculo a partir de los datos
-          const worksheet = XLSX.utils.json_to_sheet(datos);
-  
-          // Crea un libro de trabajo y agrega la hoja de cálculo
-          const workbook = XLSX.utils.book_new();
-          XLSX.utils.book_append_sheet(workbook, worksheet, "Registros");
-  
-          // Genera un archivo Excel y crea un Blob
-          const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-          const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-  
-          // Crea un enlace temporal para la descarga
-          const url = URL.createObjectURL(blob);
-  
-          // Crea un elemento <a> y lo configura para descargar el archivo
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = 'registros.xlsx'; // Nombre del archivo
-          link.click();
-  
-          // Libera la URL Blob para evitar fugas de memoria
-          URL.revokeObjectURL(url);
-      }};
-
- 
-
-
-
+  const getInputField = (columna) => {
+    const sampleValue = datos[0][columna];
+    if (typeof sampleValue === "number") {
+      return (
+        <input
+          type="number"
+          placeholder={`Filtrar por ${columna}`}
+          value={filtros[columna] || ''}
+          onChange={(e) => handleFilterChange(e, columna)}
+        />
+      );
+    } else if (typeof sampleValue === "string" && sampleValue.match(/^\d{4}-\d{2}-\d{2}/)) {
+      return (
+        <input
+          type="date"
+          value={filtros[columna] || ''}
+          onChange={(e) => handleFilterChange(e, columna)}
+        />
+      );
+    } else if (typeof sampleValue === "string") {
+      return (
+        <input
+          type="text"
+          placeholder={`Filtrar por ${columna}`}
+          value={filtros[columna] || ''}
+          onChange={(e) => handleFilterChange(e, columna)}
+        />
+      );
+    }
+    return (
+      <input
+        type="text"
+        placeholder={`Filtrar por ${columna}`}
+        value={filtros[columna] || ''}
+        onChange={(e) => handleFilterChange(e, columna)}
+      />
+    );
+  };
 
   return (
     <>
-      <button onClick={handleDownload}>Descargar Registros</button>
+    <h1 className="">{titulo}</h1>
+      <div className="cont-tittle-descargar">
+        
+        <Contadores  contadores = {contadores} />
+        <button onClick={handleDownload} className="btn-descargar">
+          <SiMicrosoftexcel className="excel-icon" /> Descargar Registros
+        </button>
+        <button 
+        className="crear-beneficiario"
+        onClick={() => navigate('/formulario')} // Cambia '/formulario' a la ruta que tengas configurada para el formulario
+      >
+        <FaPlus size={20} color="#ffffff" /> Crear beneficiario
+      </button>
+      </div>
+     
+     
+      <div className="filtros">
+        {cabeceras.map((columna, index) => (
+          <div key={index} className="filtro">
+            <label>{columna}</label>
+            {getInputField(columna)}
+          </div>
+        ))}
+        <button onClick={aplicarFiltros} className="btn">Buscar</button>
+        <button onClick={borrarFiltros} className="btn">Borrar Filtros</button>
+      </div>
 
       <table className="tabla">
+        
+
+
         <thead>
           <tr>
             {cabeceras.map((cabecera, index) => (
