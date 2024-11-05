@@ -1,6 +1,6 @@
 const  Acudiente = require('../models/Acudiente'); 
 
-const AcudienteExist = async (numero)=>{
+const ExisteAcudiente = async (numero)=>{
     const existe = await Acudiente.findOne({
         where: { num_identidad: numero } // Cambia `email` por el campo único que desees verificar
       });
@@ -11,7 +11,16 @@ const AcudienteExist = async (numero)=>{
       return null;
 }
 
-const obtenerAcudiente = async () => {
+const obtenerUnAcudiente = async (id)=>{
+    const existe = await Acudiente.findAll({where: {fk_paciente: id}});;
+      if (existe) {
+        return existe;
+      }
+      return null;
+}
+
+
+const obtenerAcudientes = async () => {
     return await Acudiente.findAll();
 };
 
@@ -37,8 +46,9 @@ const borrarAcudiente = async (id) => {
 };
 
 module.exports = {
-    AcudienteExist,
-    obtenerAcudiente,
+    ExisteAcudiente,
+    obtenerUnAcudiente,
+    obtenerAcudientes,
     crearAcudiente,
     actualizarAcudiente,
     borrarAcudiente,

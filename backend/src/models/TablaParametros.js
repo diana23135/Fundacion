@@ -13,10 +13,6 @@ const TablasParametro = sequelize.define("TablasParametro", {
     allowNull: false,   
   },
 
-  tabla: {
-    type : DataTypes.STRING,
-    allowNull: false,
-  },
   titulo: {
     type : DataTypes.STRING,
     allowNull: false,

@@ -4,6 +4,11 @@ const obtenerTablaParametros = async () => {
     return await TablaParametro.findAll();
 };
 
+const obtenerUnaTablaParametros = async (n) => {
+    return await TablaParametro.findOne({where:{nombre : n}});
+};
+
+
 const crearTablaParametros = async (data) => {
     return await TablaParametro.create(data);
 };
@@ -30,4 +35,5 @@ module.exports = {
     crearTablaParametros,
     actualizarTablaParametros,
     borrarTablaParametros,
+    obtenerUnaTablaParametros
 };

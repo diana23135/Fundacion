@@ -5,35 +5,63 @@ import {
   FaUserCheck,
   FaClock,
   FaUserTimes,
-  FaPlus,
-} from "react-icons/fa"; // Asegúrate de importar FaPlus si lo vas a usar
+  FaPlus
+
+} from "react-icons/fa"; 
 import "./Contadores.css";
 
-export const Contadores = () => {
+export const Contadores = ({contadores}) => {
   const navigate = useNavigate(); // Inicializa useNavigate
   
-  const contadoresData = [
+  console.log(contadores);  
+  
+  const contadoresData = contadores.reduce((acc, elemento) => {
+    const estado_str = elemento.nombre;
+
+
+    if (estado_str) {
+        switch (estado_str) {
+            case "Activo":
+                acc[1].numero += 1;
+                break;
+            case "En espera":
+                acc[2].numero += 1;
+                break;
+            case "Retirado":
+                acc[3].numero += 1;
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Incrementa el total de beneficiarios en el primer objeto
+    acc[0].numero += 1;
+
+    return acc;
+}, [
     {
-      icon: <FaUsers size={30} color="#007bff" />,
-      titulo: "Total de Beneficiarios",
-      numero: 500,
+        icon: <FaUsers size={30} color="#007bff" />,
+        titulo: "Total de Beneficiarios",
+        numero: 0,
     },
     {
-      icon: <FaUserCheck size={30} color="#28a745" />,
-      titulo: "Activos",
-      numero: 300,
+        icon: <FaUserCheck size={30} color="#28a745" />,
+        titulo: "Activos",
+        numero: 0,
     },
     {
-      icon: <FaClock size={30} color="#ffc107" />,
-      titulo: "En espera",
-      numero: 100,
+        icon: <FaClock size={30} color="#ffc107" />,
+        titulo: "En espera",
+        numero: 0,
     },
     {
-      icon: <FaUserTimes size={30} color="#dc3545" />,
-      titulo: "Retirados",
-      numero: 100,
+        icon: <FaUserTimes size={30} color="#dc3545" />,
+        titulo: "Retirados",
+        numero: 0,
     },
-  ];
+]);
+  
 
   return (
     <section className="contadores-descargar">

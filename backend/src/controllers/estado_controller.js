@@ -4,6 +4,14 @@ const obtenerEstado = async () => {
     return await Estado.findAll();
 };
 
+const obtenerUnEstado = async (id)=>{
+    const existe = await Estado.findByPk(id);
+    if (existe) {
+    return existe;
+    }
+    return null;
+}
+
 const crearEstado = async (data) => {
     return await Estado.create(data);
 };
@@ -26,6 +34,7 @@ const borrarEstado = async (id) => {
 };
 
 module.exports = {
+    obtenerUnEstado,
      obtenerEstado,
      crearEstado,
      actualizarEstado,

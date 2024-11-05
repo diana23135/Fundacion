@@ -7,13 +7,10 @@ const obtenerUsuarios = async () => {
 
 
 
-const ExisteUsuario = async (numero)=>{
-    const existe = await Usuario.findOne({
-        where: { id_usuario: numero } // Cambia `email` por el campo único que desees verificar
-      });
+const ObtenerUnUsuario = async (id)=>{
+    const existe = await Usuario.findByPk(id);
       if (existe) {
-        console.log('El usuario ya existe:', existe);
-        return existe.id_acudiente;
+        return existe;
       }
       return null;
 }
@@ -46,5 +43,5 @@ module.exports = {
     crearUsuarios,
     actualizarUsuarios,
     borrarUsuarios,
-    ExisteUsuario
+    ObtenerUnUsuario
 };

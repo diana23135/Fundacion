@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require('cors');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 
 //definir la ruta a los endpoints
 const acudiente_rest = require("./routes/acudiente_rest");
@@ -13,6 +15,7 @@ const documentacion_rest = require("./routes/documentacion_rest");
 const especialista_rest = require("./routes/especialista_rest");
 const historico_rest = require("./routes/historico_rest");
 const paciente_rest = require("./routes/paciente_rest");
+const tablaParametro_rest = require("./routes/tablaParametro_rest");
 
 app.use("/acudiente",acudiente_rest);
 app.use("/cita",cita_rest);
@@ -21,9 +24,13 @@ app.use("/documentacion",documentacion_rest);
 app.use("/especialista",especialista_rest);
 app.use("/historico",historico_rest);
 app.use("/paciente",paciente_rest);
+app.use("/tabla-parametros",tablaParametro_rest);
 
 //inizializar base de datos 
 require('./models/InitializeDb');
+
+
+
 
 // ejecutar servidor
 app.listen(PORT, () => {

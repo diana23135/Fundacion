@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router(); // creo el objeto de tipo router
-
-const pacientes = require('../controllers/paciente_controller');
-
-
+const TablaParametros = require("../controllers/tablaParametro_controller");
 router.get("/", async (req, res) => {
     try {
-
+        TablaParametros.obtenerTablaParametros ();
         return res.status(200).json({
             success : true,
             message : "se obtuvo con exito la informacion",
@@ -21,29 +18,33 @@ router.get("/", async (req, res) => {
         })
     }
 });
-router.get("/get-all", async (req, res) => {
-    try {
 
-        const pacientes_all = await pacientes.obtenerPacientes();
-        console.log("paciente",pacientes_all);
+router.get("/get-one", async (req, res) => {
+    try {
+        // Extraer los parámetros de consulta
+        const { id } = req.query;
+
+        // Llama a la función con el parámetro si está presente
+        const tablaParametros = await TablaParametros.obtenerUnaTablaParametros(id);
+
         return res.status(200).json({
-            success : true,
-            message : "se obtuvo con exito la informacion",
-            data : pacientes_all,
-        })
-    }
-    catch (error){
+            success: true,
+            message: "Se obtuvo con éxito la información",
+            data: tablaParametros,
+        });
+    } catch (error) {
         return res.status(500).json({
             success: false,
-            message : "Ocurrio un error al obtener pacientes",
-            error: error.message
-        })
+            message: "Ocurrió un error al obtener los parámetros",
+            error: error.message,
+        });
     }
-
 });
+
+
 router.delete("/", async (req, res) => {
     try {
-
+        TablaParametros.borrarTablaParametros(id);
         return res.status(200).json({
             success : true,
             message : "se obtuvo con exito la informacion",
@@ -60,7 +61,7 @@ router.delete("/", async (req, res) => {
 });
 router.put("/", async (req, res) => {
     try {
-
+        TablaParametros.actualizarTablaParametros();
         return res.status(200).json({
             success : true,
             message : "se obtuvo con exito la informacion",
@@ -75,34 +76,21 @@ router.put("/", async (req, res) => {
         })
     }
 });
-
-
-
 router.post("/", async (req, res) => {
-
-
-    
     try {
-
-        const paciente = await pacientes.crearPacientes(req.body);
-        
-
+        TablaParametros.crearTablaParametros();
         return res.status(200).json({
-            success: true,
-            message: "Información obtenida con éxito",
-            registro: paciente,
-        });
-    } catch (error) {
-    //     // Catch any errors from the crearPacientes function
-        console.error("Error in POST / route:", error);
+            success : true,
+            message : "se obtuvo con exito la informacion",
+            data : null,
+        })
+    }
+    catch (error){
         return res.status(500).json({
             success: false,
-            message: "Ocurrió un error al obtener información",
-            error: error.message,
-        });
+            message : "Ocurrio un error al obtener informacion",
+            error: error.message
+        })
     }
 });
-
-
-
 module.exports = router;

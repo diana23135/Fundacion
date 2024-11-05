@@ -1,4 +1,5 @@
 const  Documentacion = require('../models/Documentacion'); 
+const { fk_usuario } = require('../models/iUsuarios');
 const obtenerDocumentacion = async () => {
     return await Documentacion.findAll();
 };
@@ -6,6 +7,15 @@ const obtenerDocumentacion = async () => {
 const crearDocumentacion = async (data) => {
     return await Documentacion.create(data);
 };
+
+
+const obtenerDocumentacionbyFK= async (id)=>{
+    const existe = await Documentacion.findAll({where: {fk_paciente : id}});
+    if (existe) {
+    return existe;
+    }
+    return null;
+}
 
 const actualizarDocumentacion = async (id, data) => {
     const documentacion = await Documentacion.findByPk(id);
@@ -25,6 +35,7 @@ const borrarDocumentacion = async (id) => {
 };
 
 module.exports = {
+    obtenerDocumentacionbyFK,
     obtenerDocumentacion,
     crearDocumentacion,
     actualizarDocumentacion,

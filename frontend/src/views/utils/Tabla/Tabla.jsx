@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Tabla.css";
+import * as XLSX from 'xlsx';
 import { BotonAcciones } from "../BotonAcciones/BotonAcciones";
 
 export const Tabla = ({ datos }) => {
   const [paginaActual, setPaginaActual] = useState(1);
   const filasPorPagina = 5;
-
+  console.log(datos);
+  (datos);
   // Comprobación para evitar errores si 'datos' está vacío
   if (datos && datos.length === 0) {
     return <p>No hay datos disponibles para mostrar.</p>;
@@ -29,8 +31,47 @@ export const Tabla = ({ datos }) => {
     }
   };
 
+
+
+
+    // Función para manejar la descarga
+    const handleDownload = (event) => {
+      event.preventDefault();
+  
+      if (datos) {
+          // Crea una hoja de cálculo a partir de los datos
+          const worksheet = XLSX.utils.json_to_sheet(datos);
+  
+          // Crea un libro de trabajo y agrega la hoja de cálculo
+          const workbook = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(workbook, worksheet, "Registros");
+  
+          // Genera un archivo Excel y crea un Blob
+          const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+          const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  
+          // Crea un enlace temporal para la descarga
+          const url = URL.createObjectURL(blob);
+  
+          // Crea un elemento <a> y lo configura para descargar el archivo
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'registros.xlsx'; // Nombre del archivo
+          link.click();
+  
+          // Libera la URL Blob para evitar fugas de memoria
+          URL.revokeObjectURL(url);
+      }};
+
+ 
+
+
+
+
   return (
     <>
+      <button onClick={handleDownload}>Descargar Registros</button>
+
       <table className="tabla">
         <thead>
           <tr>

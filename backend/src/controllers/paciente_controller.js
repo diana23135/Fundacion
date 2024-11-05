@@ -1,11 +1,38 @@
 const Paciente  = require('../models/Pacientes'); 
 const acudiente_controller  = require('./acudiente_controller');
 const usuario_controller  = require('./usuario_controller');
-const condiciones_controller  = require('./condicionesEspeciales_controller');
+const documentos_controller = require('./documentacion_controller');
+const estados_controller = require('./estado_controller');
+
+// const condiciones_controller  = require('./condicionesEspeciales_controller');
+const file = require('./utils/file_manager');
+
 const edad  = require('./utils/calcular_edad');
 
 const obtenerPacientes = async () => {
-    return await Paciente.findAll();
+
+    const pacientes_all = await Paciente.findAll();
+
+    const resultados = await Promise.all(
+        
+        pacientes_all.map(async (ele) => {
+        // Esperar a que se resuelvan todas las promesas asíncronas
+        const acudientes = await acudiente_controller.obtenerUnAcudiente(ele.id_paciente);
+        const usuario = await usuario_controller.ObtenerUnUsuario(ele.id_paciente);
+        const estado = usuario ? await estados_controller.obtenerUnEstado(usuario.fk_estado) : null;
+        const files = await documentos_controller.obtenerDocumentacionbyFK(ele.id_paciente);
+        
+        // Retornar un objeto con los datos para cada paciente
+        return {
+            paciente: ele,
+            acudientes,
+            usuario,
+            estado,
+            files,
+        };
+    }
+));
+    return resultados
 };
 
 const pacienteExist = async (numero)=>{
@@ -23,13 +50,12 @@ const crearPacientes = async (data) => {
     let fk_acudiente, fk_acudiente2, usuario, acudiente_data, paciente;
 
     try {
-       
         // Check if patient already exists
         paciente = await pacienteExist(data.num_identificacion);
+        
         if (paciente) {
             return paciente; // If patient exists, return it immediately
         }
-       
        
         try {
             usuario = await usuario_controller.crearUsuarios();
@@ -136,6 +162,27 @@ const crearPacientes = async (data) => {
             console.error("Error checking or creating first guardian (acudiente):", error);
            // throw new Error("Failed to create first guardian.");
         }
+
+
+        const directory = file.createPath(data.num_identificacion);
+        // base 64 de el archivo
+        const filepath =  file.base64toFile(data.foto, data.foto_filename,'foto_perfil',directory);
+
+        // Crear la fecha de inserción actual
+        const fechaInsercion = new Date();
+
+        // Calcular la vigencia como dos años después de la fecha de inserción
+        const vigencia = new Date(fechaInsercion);
+        vigencia.setFullYear(vigencia.getFullYear() + 2); // Agrega 2 años
+        data_document = {
+            fk_paciente: paciente.id_paciente,
+            tipo_documento: 'foto de perfil',
+            fecha_insercion:fechaInsercion,
+            vigencia: vigencia,
+            archivo_adjunto: filepath
+        }
+        await documentos_controller.crearDocumentacion(data_document);
+
 
         return paciente;
 
