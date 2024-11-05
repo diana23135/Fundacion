@@ -65,6 +65,7 @@ if(datos && datos.length > 0){
     }
   };
 
+}
   // Función para manejar la descarga
   const handleDownload = (event) => {
     event.preventDefault();
