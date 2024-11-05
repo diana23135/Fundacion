@@ -60,7 +60,7 @@ export const Contadores = ({contadores}) => {
   
 
   return (
-    <section className="contadores-descargar">
+    <section className="contadores-cont">
       <div className="contadores">
         {contadoresData.map((contador, index) => (
           <div className="contador" key={index}>
