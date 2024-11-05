@@ -97,7 +97,7 @@ export function Inicio() {
           return dic; 
         });
         
-        console.log(pacientes);
+       
         setContadores(estados);
         setDatos(pacientes);
        
