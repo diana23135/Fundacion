@@ -7,10 +7,35 @@
   --color-neutral: #f9fafb; /* Blanco suave */
 }
 
+body {
+  background-color: var(--color-background); /* Aplicar color de fondo al body */
+}
+
+.cont-tabla {
+  max-width: 80%;
+  overflow-x: auto; /* Habilitar desplazamiento horizontal si es necesario */
+  margin: 0 auto; /* Centrar el contenedor horizontalmente */
+  border-radius: 10px; /* Bordes redondeados */
+  overflow: hidden; /* Para aplicar el efecto de blur */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil para resaltar el contenedor */
+}
+
+.cont-tabla::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit; /* Heredar el fondo del contenedor */
+  filter: blur(10px); /* Aplicar el efecto de desenfoque */
+  z-index: -1; /* Asegurar que quede detrás del contenido */
+}
+
 .tabla {
-  width: 80%;
+  width: 100%; /* Cambiado a 100% para adaptarse al contenedor */
   border-collapse: collapse;
-  margin: 20px auto; /* Centrar horizontalmente */
+  margin: 20px 0; /* Margen vertical para separación */
   font-size: 1em;
   text-align: center; /* Centrar texto */
 }
@@ -46,9 +71,11 @@
 .accion-button:hover {
   color: white; /* Cambia el color al pasar el mouse */
 }
+
 .paginacion {
   display: flex;
   justify-content: center;
+  align-items: center; /* Alinear verticalmente */
   margin: 20px 0;
 }
 
@@ -60,6 +87,8 @@
   margin: 0 5px;
   cursor: pointer;
   font-size: 1rem;
+  border-radius: 5px; /* Añadir bordes redondeados */
+  transition: background-color 0.3s; /* Transición suave para el fondo */
 }
 
 .pagina-button.activo {
@@ -69,22 +98,6 @@
 
 .pagina-button:hover {
   background-color: var(--color-light);
-}
-.paginacion {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.paginacion button {
-  background-color: var(--color-secondary);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 5px;
 }
 
 .paginacion button:disabled {
