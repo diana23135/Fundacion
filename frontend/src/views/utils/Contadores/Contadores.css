@@ -12,7 +12,7 @@
 
 /* Ajusta el contenedor de los contadores */
 .contadores {
-  flex-basis: 60%; /* Ajusta el ancho del 80% */
+  flex-basis: 80%; /* Ajusta el ancho del 80% */
   display: flex;
 }
 
@@ -50,8 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 15%; /* Ocupa el 20% del ancho */
-  background-color: #007bff;
+  flex-basis: 20%; /* Ocupa el 20% del ancho */
+  background-color: hsl(211, 100%, 50%);
   color: white;
   border: none;
   border-radius: 5px;
