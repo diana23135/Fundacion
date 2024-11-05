@@ -12,13 +12,9 @@ import "./Contadores.css";
 
 export const Contadores = ({contadores}) => {
   const navigate = useNavigate(); // Inicializa useNavigate
-  
-  console.log(contadores);  
-  
+
   const contadoresData = contadores.reduce((acc, elemento) => {
     const estado_str = elemento.nombre;
-
-
     if (estado_str) {
         switch (estado_str) {
             case "Activo":

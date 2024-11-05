@@ -1,7 +1,7 @@
 import React from 'react';
 import './VisualizarRegistro.css'; // Importa los estilos
 
-const VisualizarRegistro = ({ data }) => {
+export const VisualizarRegistro = ({ data }) => {
     return (
         <div className="registro-container">
             <h2 className="registro-title">Información del Beneficiario</h2>
@@ -19,4 +19,4 @@ const VisualizarRegistro = ({ data }) => {
     );
 };
 
-export default VisualizarRegistro;
+

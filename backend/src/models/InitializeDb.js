@@ -25,7 +25,8 @@ Connecthandler.sync({ force: true })
     await TablaParametros.bulkCreate([
         { nombre: 'pacientes',
           titulo: 'Tabla Pacientes',
-          fields_default: 'fecha_registro, paciente.nombre,paciente.apellido,paciente.num_identidad, acudiente.nombre, paciente.direccion, paciente.telefono, estado.nombre',
+          fields_default: 'paciente.createdAt,paciente.nombre - paciente.apellido,paciente.num_identidad,paciente.direccion,paciente.tel_celular,estado.nombre',
+          labels_default:'Fecha registro,Nombre del Paciente,Numero de identidad,Direccion,Telefono,Estado',
           fk_perfil:perfil.id_perfil},
   
     ]);

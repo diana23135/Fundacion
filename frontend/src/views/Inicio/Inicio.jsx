@@ -5,7 +5,7 @@ import { Nav } from "../utils/Nav/Nav";
 import { Contadores } from "../utils/Contadores/Contadores";
 import { Buscadores } from "../utils/Buscadores/Buscadores";
 import { Tabla } from "../utils/Tabla/Tabla";
-
+import { formatDate, isDate } from "../../scripts/date_format";
 
 export function Inicio() {
   const [datos, setDatos] = useState([]);
@@ -29,7 +29,7 @@ export function Inicio() {
   
         const data1 = await response1.json();
         const fields = data1.data.fields_default.split(',');
-  
+        const labels = data1.data.labels_default.split(',');
         // Guarda los campos obtenidos
   
         // Segunda llamada: Obtener pacientes
@@ -53,16 +53,47 @@ export function Inicio() {
   
         // Mapea cada paciente solo con los campos solicitados
         const pacientes = data2.data.map((ele) => {
-          const result = fields.reduce((acc, field) => {
-            acc[field] = getNestedProperty(ele, field);
+
+          const result = fields.reduce((acc, field, idx) => {
+            field = field.replace(/\s+/g, '');
+            
+            let value;
+            if (field.includes('-')){
+              const concats = field.split('-');
+              console.log(concats);
+              
+
+              value = concats.reduce((acc,concat)=>{
+                const property = getNestedProperty(ele, concat);
+                return  acc +property+ " ";
+              },"");
+            }else {
+              value = getNestedProperty(ele, field);
+            }
+            
+            acc[labels[idx]] = value;
             return acc;
           }, {});
+          
+          
           return result;
         });
   
         // Actualiza el estado con los datos de pacientes y estados
         const estados = data2.data.map((ele) => ele.estado);
-  
+        console.log(data2);
+        
+        pacientes.map(dic => {
+          for (const key in dic) {
+            const value = dic[key];
+            if (typeof value === 'string' && isDate(value)) {
+              dic[key] = formatDate(value);
+            }
+
+          }
+          return dic; 
+        });
+
         setContadores(estados);
         setDatos(pacientes);
   

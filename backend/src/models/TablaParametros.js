@@ -21,6 +21,10 @@ const TablasParametro = sequelize.define("TablasParametro", {
     type : DataTypes.STRING,
     allowNull: false,
   },
+  labels_default: {
+    type : DataTypes.STRING,
+    allowNull: false,
+  },
 
   fk_perfil: {
     type: DataTypes.INTEGER,

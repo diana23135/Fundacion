@@ -12,7 +12,6 @@ export const BotonAcciones = () => {
   };
 
   const handleOptionClick = (option) => {
-    console.log(option);
     if (option === "Visualizar") navigate("/VisualizarRegistro");
     setMenuVisible(false); // Ocultar el menú después de seleccionar una opción
   };
