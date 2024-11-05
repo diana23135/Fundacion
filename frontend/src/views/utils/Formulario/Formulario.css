@@ -8,8 +8,10 @@
   --color-gris: #444444;
 }
 .form {
+
+  
   margin-top: 100px !important;
-  position: relative;
+ 
   max-width: 60%; /* Ancho ajustado al 60% de la pantalla */
   background: #ffffff;
   padding: 20px;

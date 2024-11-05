@@ -47,7 +47,7 @@ export function Inicio() {
         }
   
         const data2 = await response2.json();
-        console.log(data2);
+      
         
         // Función para acceder a propiedades anidadas
         const getNestedProperty = (obj, path) => {
@@ -97,10 +97,10 @@ export function Inicio() {
           return dic; 
         });
         
-        
+        console.log(pacientes);
         setContadores(estados);
         setDatos(pacientes);
-        console.log('llegamos');
+       
   
       } catch (error) {
         console.error("Error al cargar los datos:", error);

@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./BotonAcciones.css";
 import { useNavigate } from "react-router-dom";
 
-export const BotonAcciones = () => {
+export const BotonAcciones = ({data}) => {
+ 
+  
   const [menuVisible, setMenuVisible] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
@@ -12,7 +14,10 @@ export const BotonAcciones = () => {
   };
 
   const handleOptionClick = (option) => {
-    if (option === "Visualizar") navigate("/VisualizarRegistro");
+    console.log(data);
+    
+    const num_identidad = data["Numero de identidad"];
+    if (option === "Visualizar") navigate(`/visualizar?numero_id=${num_identidad}`);
     setMenuVisible(false); // Ocultar el menú después de seleccionar una opción
   };
 

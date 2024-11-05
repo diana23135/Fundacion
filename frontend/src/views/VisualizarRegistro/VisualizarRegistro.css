@@ -1,12 +1,25 @@
 .paciente-card {
-    max-width: 600px; /* Mantiene un ancho máximo */
-    margin: 20px auto; /* Centra la tarjeta en la pantalla */
+    margin: 20vw;
+    max-width: 80vw; /* Ancho máximo */
+    margin: 20px auto; /* Centrado en la pantalla */
     padding: 20px; /* Espacio interno */
     background-color: #f9f9f9; /* Color de fondo */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
-    overflow: hidden; /* Evita que el contenido se desborde */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+   
+    transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
 }
+
+/* Otras clases de estilos, si es necesario */
+.paciente-image {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.paciente-info h2 {
+    margin: 0; /* Elimina margen por defecto */
+}
+
 
 .paciente-header {
     display: flex; /* Utiliza flexbox para la disposición */
@@ -15,8 +28,8 @@
 }
 
 .paciente-image {
-    width: 80px; /* Tamaño de la imagen más pequeño */
-    height: 80px; /* Tamaño de la imagen más pequeño */
+    width: 150px; /* Tamaño de la imagen más pequeño */
+    height: 150px; /* Tamaño de la imagen más pequeño */
     border-radius: 50%; /* Bordes redondeados para la imagen */
     margin-right: 15px; /* Espacio entre la imagen y el texto */
 }

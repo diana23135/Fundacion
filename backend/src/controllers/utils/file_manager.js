@@ -57,16 +57,15 @@ const createPath = function (namefolder) {
 };
 
 function FileToBase64(filePath) {
-    return new Promise((resolve, reject) => {
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-                return reject(err);
-            }
-            const base64 = data.toString('base64');
-            resolve(base64);
-        });
-    });
+    try {
+        // Leer el archivo de forma sincrónica
+        const data = fs.readFileSync(filePath);
+        // Convertir el contenido del archivo a base64
+        return data.toString('base64');
+    } catch (err) {
+        console.error('Error al leer el archivo:', err);
+        return null; // O maneja el error de acuerdo a tus necesidades
+    }
 }
-
 
 module.exports = {base64toFile,createPath,FileToBase64}

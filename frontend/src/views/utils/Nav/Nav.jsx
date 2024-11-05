@@ -65,12 +65,12 @@ export function Nav() {
         <div className="botones-nav">
           <ul className="nav-links">
             <li>
-              <a href="#home" className="nav-button">
+              <a href="/inicio" className="nav-button">
                 <FaUser /> Beneficiarios
               </a>
             </li>
             <li>
-              <a href="/AboutUS" className="nav-button">
+              <a href="/historias" className="nav-button">
                 <FaInfoCircle /> Historias clínicas
               </a>
             </li>

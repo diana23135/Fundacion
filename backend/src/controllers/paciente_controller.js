@@ -20,31 +20,75 @@ const obtenerPacientes = async () => {
         const acudientes = await acudiente_controller.obtenerUnAcudiente(ele.id_paciente);
         const usuario = await usuario_controller.ObtenerUnUsuario(ele.id_paciente);
         const estado = usuario ? await estados_controller.obtenerUnEstado(usuario.fk_estado) : null;
-        const files = await documentos_controller.obtenerDocumentacionbyFK(ele.id_paciente);
+        let files = await documentos_controller.obtenerDocumentacionbyFK(ele.id_paciente);
         
-        let base64;
-        convertFileToBase64(files.archivo_adjunto)
-        .then(data => {
-            console.log(base64); 
-            // Aquí tienes el archivo en Base64
-            base64 = data
-        })  
-        .catch(err => {
-            console.error('Error al leer el archivo:', err);
-        });
+        // Convertir los archivos a base64 y agregar la propiedad base64
+        const filesWithBase64 = await Promise.all(files.map(async (el) => {
+            const base64 = await file.FileToBase64(el.archivo_adjunto); // Asegúrate de que FileToBase64 sea una función asíncrona si utiliza promesas
+
+            console.log();
+            return {...el.dataValues, base64};
+              
+        }));
+       
+       
+        
         // Retornar un objeto con los datos para cada paciente
         return {
             paciente: ele,
             acudientes,
             usuario,
             estado,
-            files,
-            base64
+            files:filesWithBase64,
+         
         };
     }
 ));
     return resultados
 };
+
+const obtenerPaciente = async (id) => {
+    try {
+        // Obtener todos los pacientes que coinciden con el número de identidad
+        const pacientes_all = await Paciente.findAll({ where: { num_identidad: id } });
+
+        // Usar Promise.all para procesar los datos de cada paciente
+        const resultados = await Promise.all(
+            pacientes_all.map(async (ele) => {
+                // Obtener acudientes, usuario y estado para cada paciente
+                const acudientes = await acudiente_controller.obtenerUnAcudiente(ele.id_paciente);
+                const usuario = await usuario_controller.ObtenerUnUsuario(ele.id_paciente);
+                const estado = usuario ? await estados_controller.obtenerUnEstado(usuario.fk_estado) : null;
+                
+                // Obtener documentos asociados al paciente
+                let files = await documentos_controller.obtenerDocumentacionbyFK(ele.id_paciente);
+                
+                // Convertir cada archivo a base64 y agregarlo al objeto
+                const filesWithBase64 = await Promise.all(files.map(async (el) => {
+                    const base64 = await file.FileToBase64(el.archivo_adjunto); // Asegúrate de que sea una función asíncrona
+                    return { ...el.dataValues, base64 };
+                }));
+                
+                // Retornar un objeto con los datos para cada paciente
+                return {
+                    paciente: ele,
+                    acudientes,
+                    usuario,
+                    estado,
+                    files: filesWithBase64,
+                };
+            })
+        );
+
+        console.log(resultados); // Imprimir resultados para depuración
+        return resultados;
+        
+    } catch (error) {
+        console.error("Error al obtener datos del paciente:", error);
+        throw error; // Opcional: Propaga el error para manejo a nivel superior
+    }
+};
+
 
 const pacienteExist = async (numero)=>{
     const usuario = await Paciente.findOne({
@@ -230,6 +274,7 @@ const borrarPacientes = async (id) => {
 module.exports = {
     pacienteExist,
     obtenerPacientes,
+    obtenerPaciente,
     crearPacientes,
     actualizarPacientes,
     borrarPacientes,

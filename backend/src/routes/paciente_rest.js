@@ -6,11 +6,13 @@ const pacientes = require('../controllers/paciente_controller');
 
 router.get("/", async (req, res) => {
     try {
+        const { id } = req.query;
 
+        const get_one = await pacientes.obtenerPaciente(id);
         return res.status(200).json({
             success : true,
             message : "se obtuvo con exito la informacion",
-            data : null,
+            data : get_one,
         })
     }
     catch (error){
