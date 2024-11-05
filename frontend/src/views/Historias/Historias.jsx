@@ -10,7 +10,7 @@ export function HistoriasClinicas (){
     return (
         <>
             <Nav/>
-            <div className='formulario'>
+             <div className='formulario'>
             <h1 className="titulo">Hoja de Evolución</h1>
             
             <div className="form-group">
@@ -37,8 +37,8 @@ export function HistoriasClinicas (){
                 <input className="form-input" type="text" disabled />
             </div>
             </div>
-                
-            {/* <Tabla/> */}
+                 
+            <Tabla/>
             <Footer/>
         </>
     );
