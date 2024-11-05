@@ -74,7 +74,7 @@ export const Tabla = ({ datos }) => {
         <button onClick={handleDownload} className="btn-descargar">
           <SiMicrosoftexcel className="excel-icon" /> Descargar Registros
         </button>
-      </div>
+      </div> 
       <table className="tabla">
         <thead>
           <tr>
