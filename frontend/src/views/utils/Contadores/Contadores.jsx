@@ -38,7 +38,7 @@ export const Contadores = ({contadores}) => {
 }, [
     {
         icon: <FaUsers size={30} color="#007bff" />,
-        titulo: "Total de Beneficiarios",
+        titulo: "Total",
         numero: 0,
     },
     {
