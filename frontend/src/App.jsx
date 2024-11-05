@@ -21,9 +21,12 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/Registro.json")
+    fetch("public/templates/Registro.json")
       .then((response) => response.json())
-      .then((data) => setRegistro(data))
+      .then((data) => {
+        console.log('registro',data);
+        
+        setRegistro(data)})
       .catch((error) => console.error("Error al cargar los datos:", error));
   }, []);
 
