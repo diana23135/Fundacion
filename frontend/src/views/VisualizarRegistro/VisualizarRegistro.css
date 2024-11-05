@@ -1,0 +1,67 @@
+.paciente-card {
+    max-width: 600px; /* Mantiene un ancho máximo */
+    margin: 20px auto; /* Centra la tarjeta en la pantalla */
+    padding: 20px; /* Espacio interno */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.paciente-header {
+    display: flex; /* Utiliza flexbox para la disposición */
+    align-items: center; /* Alinea verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que el contenido se ajuste en múltiples líneas si es necesario */
+}
+
+.paciente-image {
+    width: 80px; /* Tamaño de la imagen más pequeño */
+    height: 80px; /* Tamaño de la imagen más pequeño */
+    border-radius: 50%; /* Bordes redondeados para la imagen */
+    margin-right: 15px; /* Espacio entre la imagen y el texto */
+}
+
+.paciente-info {
+    flex-grow: 1; /* Permite que este div ocupe el espacio restante */
+}
+
+h2 {
+    margin: 0 0 10px; /* Espaciado para el título */
+    font-size: 1.5em; /* Aumenta el tamaño del texto */
+}
+
+h3 {
+    margin-top: 15px; /* Espaciado superior para los subtítulos */
+    font-size: 1.2em; /* Tamaño de fuente más grande para los subtítulos */
+}
+
+.paciente-details {
+    margin-top: 10px; /* Espaciado superior */
+    border-top: 1px solid #e0e0e0; /* Línea superior */
+    padding-top: 10px; /* Espaciado superior dentro de detalles */
+}
+
+strong {
+    color: #333; /* Color del texto fuerte */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .paciente-card {
+        margin: 10px; /* Menos margen en pantallas pequeñas */
+        padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .paciente-image {
+        width: 60px; /* Tamaño de imagen más pequeño en pantallas pequeñas */
+        height: 60px; /* Tamaño de imagen más pequeño en pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 1.3em; /* Tamaño de fuente más pequeño */
+    }
+
+    h3 {
+        font-size: 1.1em; /* Tamaño de fuente más pequeño */
+    }
+}

@@ -12,9 +12,8 @@ export const Tabla = ({ datos, contadores, titulo}) => {
   const [aplicarFiltro, setAplicarFiltro] = useState(false);
   const filasPorPagina = 5;
   const navigate = useNavigate();
-  if (!datos || datos.length === 0) {
-    return <p>No hay datos disponibles para mostrar.</p>;
-  }
+
+
 
   const cabeceras = Object.keys(datos[0]);
 
@@ -120,8 +119,11 @@ export const Tabla = ({ datos, contadores, titulo}) => {
 
   return (
     <>
-    <h1 className="">{titulo}</h1>
+    
+
+    <h1 className="">{titulo || 'No se ha cargado titulo'}</h1>
       <div className="cont-tittle-descargar">
+        
         
         <Contadores  contadores = {contadores} />
         <button onClick={handleDownload} className="btn-descargar">
@@ -146,6 +148,12 @@ export const Tabla = ({ datos, contadores, titulo}) => {
         <button onClick={aplicarFiltros} className="btn">Buscar</button>
         <button onClick={borrarFiltros} className="btn">Borrar Filtros</button>
       </div>
+
+
+
+     {!datos || datos.length === 0} ? <p>No hay datos disponibles para mostrar.</p>:
+  
+ 
 
       <table className="tabla">
         

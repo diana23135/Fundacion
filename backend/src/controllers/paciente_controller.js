@@ -22,6 +22,16 @@ const obtenerPacientes = async () => {
         const estado = usuario ? await estados_controller.obtenerUnEstado(usuario.fk_estado) : null;
         const files = await documentos_controller.obtenerDocumentacionbyFK(ele.id_paciente);
         
+        let base64;
+        convertFileToBase64(files.archivo_adjunto)
+        .then(data => {
+            console.log(base64); 
+            // Aquí tienes el archivo en Base64
+            base64 = data
+        })  
+        .catch(err => {
+            console.error('Error al leer el archivo:', err);
+        });
         // Retornar un objeto con los datos para cada paciente
         return {
             paciente: ele,
@@ -29,6 +39,7 @@ const obtenerPacientes = async () => {
             usuario,
             estado,
             files,
+            base64
         };
     }
 ));
