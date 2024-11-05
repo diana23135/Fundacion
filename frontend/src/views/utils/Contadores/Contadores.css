@@ -1,25 +1,25 @@
 /* Contenedor principal para contadores */
 .contadores-cont {
-  margin: 20px auto;
-  max-width: 80%;
-  padding: 20px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* Permite que los contadores se ajusten en pantallas pequeñas */
+  flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
 }
 
-/* Ajusta el contenedor de los contadores */
+/* Contenedor de los contadores */
 .contadores {
-  flex-basis: 80%; /* Ajusta el ancho del 80% */
+  flex-basis: 100%;
   display: flex;
+  flex-wrap: wrap; /* Permite la flexibilidad en pantallas más pequeñas */
+  gap: 10px; /* Espacio entre los contadores */
 }
 
 /* Estilos específicos para cada contador */
 .contador {
-  display: flex; /* Hacemos el contenedor flex para alinear ícono y texto en una fila */
-  align-items: center; /* Centra verticalmente el ícono y el texto */
+  display: flex;
+  align-items: center;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -28,21 +28,27 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.contador:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .contador svg {
-  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  margin-right: 10px;
 }
 
 .contador div {
-  text-align: left; /* Alinea el texto a la izquierda */
+  text-align: left;
 }
 
 .contador h3 {
+  font-size: 13px;
   color: #555;
+  margin: 0;
 }
 
 .contador .numero {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #007bff;
 }
-/* Estilo para el botón Crear Beneficiario */
