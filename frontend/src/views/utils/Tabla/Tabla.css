@@ -155,17 +155,43 @@ body {
   background: red;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  padding: 10px; /* Agrega un padding para un espacio más suave */
+  gap: 10px; /* Espacio entre los elementos dentro de .filtros */
+}
+
+.filtro {
+  display: flex;
+  flex-direction: column; /* Alinea el label y el input verticalmente */
+  margin-right: 15px; /* Espacio entre los filtros */
+  flex: 1 1 150px; /* Permite que cada filtro crezca con un ancho mínimo */
+}
+
+.filtro label {
+  font-size: 0.9em; /* Tamaño de fuente más pequeño para las etiquetas */
+  margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
 }
 
 .filtro input, .filtro select {
-  padding: 8px;
-  font-size: 1em;
+  font-size: 13px; /* Tamaño de fuente más pequeño */
+  padding: 5px; /* Agrega padding para un input más delicado */
   border: 1px solid var(--color-primary);
   border-radius: 4px;
 }
-.btn-filtros{
+
+.btn-filtros {
   background: yellow;
+  padding: 8px 12px; /* Ajusta el padding para un botón más pequeño */
+  border: none; /* Quita el borde por defecto */
+  border-radius: 4px; /* Bordes redondeados para un estilo más suave */
+  font-size: 0.9em; /* Tamaño de fuente más pequeño */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Agrega una transición suave */
+}
+
+.btn-filtros:hover {
+  background: orange; /* Cambia el color al pasar el mouse */
+}
+
 }
 /* RESPONSIVE */
 @media (max-width: 768px) {

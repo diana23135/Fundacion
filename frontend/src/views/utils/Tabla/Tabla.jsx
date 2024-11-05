@@ -14,7 +14,7 @@ export const Tabla = ({ datos, contadores, titulo }) => {
   const navigate = useNavigate();
   let cabeceras = [];
 if(datos && datos.length > 0){
-  const cabeceras = Object.keys(datos[0]);
+   cabeceras = Object.keys(datos[0]);
 }
 
 
