@@ -1,0 +1,61 @@
+.formulario{
+    
+    justify-content: center;
+    width: 80vw;
+    margin: 5vw;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+
+    gap: 45px;
+    margin-bottom: 10px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+    min-width: 150px; /* Ajusta el ancho mínimo según lo necesario */
+  }
+  
+  .form-input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    flex: 1;
+    max-width: 250px;
+    background-color: #f0f0f0; /* Fondo gris claro para inputs deshabilitados */
+    color: #666;
+  }
+  
+  .form-input:disabled {
+    color: #999;
+    cursor: not-allowed;
+  }
+  
+  .form-group > * {
+    flex: 1 1 200px; /* Ajusta para que los elementos tomen el espacio disponible */
+  }
+  
+  @media (max-width: 600px) {
+    .form-group {
+      flex-direction: column;
+    }
+  
+    .form-label {
+      min-width: 100%; /* Los labels ocuparán el ancho completo en pantallas pequeñas */
+    }
+  
+    .form-input {
+      max-width: 100%;
+    }
+  }
+  

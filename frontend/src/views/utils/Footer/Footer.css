@@ -7,28 +7,28 @@
   --color-neutral: #f9fafb;
 }
 
-/* Asegura que el body y html ocupen toda la altura de la ventana */
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
 
 /* Contenedor principal de la página */
 .main-content {
   flex: 1; /* Empuja el footer hacia abajo */
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 /* Contenedor principal del footer */
 .footer-container {
   background-color: var(--color-primary);
   color: var(--color-neutral);
-  padding: 40px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+ 
 }
 
 /* Secciones del footer */

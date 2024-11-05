@@ -6,50 +6,30 @@ import { BotonAcciones } from "../BotonAcciones/BotonAcciones";
 import { FaPlus } from "react-icons/fa";
 import { Contadores } from "../Contadores/Contadores";
 import { useNavigate } from "react-router-dom";
+
 export const Tabla = ({ datos, contadores, titulo }) => {
   const [paginaActual, setPaginaActual] = useState(1);
-  const [filtros, setFiltros] = useState({});
-  const [aplicarFiltro, setAplicarFiltro] = useState(false);
+  const [buscar, setBuscar] = useState("");
   const filasPorPagina = 5;
   const navigate = useNavigate();
   let cabeceras = [];
-if(datos && datos.length > 0){
-   cabeceras = Object.keys(datos[0]);
-}
 
+  if (datos && datos.length > 0) {
+    cabeceras = Object.keys(datos[0]);
+  }
 
-  // Cambiar el valor de los filtros en el estado
-  const handleFilterChange = (e, columna) => {
-    setFiltros({
-      ...filtros,
-      [columna]: e.target.value,
-    });
+  // Cambiar el valor del campo de búsqueda en el estado
+  const handleBuscarChange = (e) => {
+    setBuscar(e.target.value);
+    setPaginaActual(1); // Reiniciar a la primera página al cambiar el texto de búsqueda
   };
 
-  // Ejecutar filtro solo cuando se presiona el botón "Buscar"
-  const aplicarFiltros = () => {
-    setAplicarFiltro(true);
-    setPaginaActual(1); // Reiniciar a la primera página
-  };
-
-  // Borrar filtros
-  const borrarFiltros = () => {
-    setFiltros({});
-    setAplicarFiltro(false);
-    setPaginaActual(1);
-  };
-
-  const datosFiltrados = aplicarFiltro
-    ? datos.filter((fila) =>
-        cabeceras.every((columna) => {
-          if (!filtros[columna]) return true;
-          return fila[columna]
-            ?.toString()
-            .toLowerCase()
-            .includes(filtros[columna].toLowerCase());
-        })
-      )
-    : datos;
+  // Filtrar los datos en base a la búsqueda en todas las columnas
+  const datosFiltrados = datos.filter((fila) =>
+    cabeceras.some((columna) =>
+      fila[columna]?.toString().toLowerCase().includes(buscar.toLowerCase())
+    )
+  );
 
   const indiceUltimaFila = paginaActual * filasPorPagina;
   const indicePrimeraFila = indiceUltimaFila - filasPorPagina;
@@ -69,7 +49,6 @@ if(datos && datos.length > 0){
   // Función para manejar la descarga
   const handleDownload = (event) => {
     event.preventDefault();
-
     const worksheet = XLSX.utils.json_to_sheet(datosFiltrados);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Registros");
@@ -88,133 +67,85 @@ if(datos && datos.length > 0){
     URL.revokeObjectURL(url);
   };
 
-  const getInputField = (columna) => {
-    const sampleValue = datos[0][columna];
-    if (typeof sampleValue === "number") {
-      return (
-        <input
-          type="number"
-          placeholder={`Filtrar por ${columna}`}
-          value={filtros[columna] || ""}
-          onChange={(e) => handleFilterChange(e, columna)}
-        />
-      );
-    } else if (
-      typeof sampleValue === "string" &&
-      sampleValue.match(/^\d{4}-\d{2}-\d{2}/)
-    ) {
-      return (
-        <input
-          type="date"
-          value={filtros[columna] || ""}
-          onChange={(e) => handleFilterChange(e, columna)}
-        />
-      );
-    } else if (typeof sampleValue === "string") {
-      return (
-        <input
-          type="text"
-          placeholder={`Filtrar por ${columna}`}
-          value={filtros[columna] || ""}
-          onChange={(e) => handleFilterChange(e, columna)}
-        />
-      );
-    }
-    return (
-      <input
-        type="text"
-        placeholder={`Filtrar por ${columna}`}
-        value={filtros[columna] || ""}
-        onChange={(e) => handleFilterChange(e, columna)}
-      />
-    );
-  };
-
   return (
     <>
-      {(datos || datos.length >0) && (
-  <div className="contenedor">
-    <h1>{titulo}</h1>
-    <div className="filtros">
-      {cabeceras.map((columna, index) => (
-        <div key={index} className="filtro">
-          <label>{columna}</label>
-          {getInputField(columna)}
+      {datos && datos.length > 0 && (
+        <div className="contenedor">
+          <h1>{titulo}</h1>
+          <br />
         </div>
-      ))}
-      <div className="btn-filtros">
-        <button onClick={aplicarFiltros} className="btn">
-          Buscar
+      )}
+
+      <div className="cont-crear-descargar">
+        <Contadores contadores={contadores} />
+        <div className="filtro">
+             
+              <input
+                type="text"
+                placeholder="Buscar registros"
+                value={buscar}
+                onChange={handleBuscarChange}
+              />
+            </div>
+        <button onClick={handleDownload} className="btn-descargar">
+          <SiMicrosoftexcel className="excel-icon" /> Descargar
         </button>
-        <button onClick={borrarFiltros} className="btn">
-          Reestablecer
+        <button
+          className="crear-beneficiario"
+          onClick={() => navigate("/formulario")}
+        >
+          <FaPlus className="FaPlus-icon" size={20} color="#ffffff" /> Crear
         </button>
       </div>
-    </div>
-  </div>
-)}
 
-        <div className="cont-crear-descargar">
-          <Contadores contadores={contadores} />
-          <button onClick={handleDownload} className="btn-descargar">
-            <SiMicrosoftexcel className="excel-icon" /> Descargar
-          </button>
-          <button
-            className="crear-beneficiario"
-            onClick={() => navigate("/formulario")} // Cambia '/formulario' a la ruta que tengas configurada para el formulario
-          >
-            <FaPlus className="FaPlus-icon" size={20} color="#ffffff" /> Crear
-          </button>
-        </div>
+      {!datos || datos.length === 0 ? (
+        <p className="contenedor">No hay datos disponibles para mostrar.</p>
+      ) : (
+        <>
+          <table className="tabla">
+            <thead>
+              <tr>
+                {cabeceras.map((cabecera, index) => (
+                  <th key={index}>{cabecera}</th>
+                ))}
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filasActuales.map((fila, index) => (
+                <tr key={index}>
+                  {cabeceras.map((cabecera) => (
+                    <td key={cabecera}>{fila[cabecera]}</td>
+                  ))}
+                  <td>
+                    <BotonAcciones data={fila} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-        {!datos || datos.length === 0 ? (
-  <p>No hay datos disponibles para mostrar.</p>
-) : (
-  <>
-    <table className="tabla">
-      <thead>
-        <tr>
-          {cabeceras.map((cabecera, index) => (
-            <th key={index}>{cabecera}</th>
-          ))}
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filasActuales.map((fila, index) => (
-          <tr key={index}>
-            {cabeceras.map((cabecera) => (
-              <td key={cabecera}>{fila[cabecera]}</td>
-            ))}
-            <td>
-              <BotonAcciones />
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-
-    <div className="paginacion">
-      <button
-        onClick={() => cambiarPagina(paginaActual - 1)}
-        disabled={paginaActual === 1}
-      >
-        Anterior
-      </button>
-      <span>
-        Página {paginaActual} de {numeroTotalPaginas}
-      </span>
-      <button
-        onClick={() => cambiarPagina(paginaActual + 1)}
-        disabled={paginaActual === numeroTotalPaginas}
-      >
-        Siguiente
-      </button>
-    </div>
-  </>
-)}
-
-      
+          <div className="paginacion">
+            <button
+              onClick={() => cambiarPagina(paginaActual - 1)}
+              disabled={paginaActual === 1}
+              className="btn-general"
+            >
+              Anterior
+            </button>
+            <span>
+              Página {paginaActual} de {numeroTotalPaginas}
+            </span>
+            <button
+              onClick={() => cambiarPagina(paginaActual + 1)}
+              disabled={paginaActual === numeroTotalPaginas}
+              className="btn-general"
+            >
+              Siguiente
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 };

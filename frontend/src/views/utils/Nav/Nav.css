@@ -7,12 +7,7 @@
   --color-neutral: #f9fafb; /* Blanco suave */
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, sans-serif; /* Asegura que la fuente sea sans-serif */
-  background-color: var(--color-background);
-  color: var(--color-primary);
-}
+
 
 .navbar {
   height: 60px;
@@ -20,7 +15,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--color-primary);
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   left: 0;
@@ -29,10 +24,10 @@ body {
   transition: transform 0.5s ease, opacity 0.5s ease; /* Transición para mostrar/ocultar */
 }
 
-.navbar.hidden {
+/* .navbar.hidden {
   transform: translateY(-100%);
   opacity: 0;
-}
+} */
 
 .contenedor-nav {
   display: flex; /* Cambiar a flex */

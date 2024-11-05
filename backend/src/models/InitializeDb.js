@@ -7,7 +7,7 @@ const TablaParametros = require('./TablaParametros');
 const Role = require('./Role');
 const Perfil = require('./Perfil');
 
-Connecthandler.sync({ force: true })
+Connecthandler.sync({ force: false })
 .then(async () => {
     await Estados.bulkCreate([
         { nombre: 'Activo',descripcion :'el usuario se encuentra actualmente en la organizacion'},

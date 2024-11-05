@@ -56,6 +56,16 @@ const createPath = function (namefolder) {
     return directoryPath;
 };
 
+function FileToBase64(filePath) {
+    try {
+        // Leer el archivo de forma sincrónica
+        const data = fs.readFileSync(filePath);
+        // Convertir el contenido del archivo a base64
+        return data.toString('base64');
+    } catch (err) {
+        console.error('Error al leer el archivo:', err);
+        return null; // O maneja el error de acuerdo a tus necesidades
+    }
+}
 
-
-module.exports = {base64toFile,createPath}
+module.exports = {base64toFile,createPath,FileToBase64}

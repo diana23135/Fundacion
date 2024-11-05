@@ -12,6 +12,8 @@ body {
 }
 .contenedor{
   margin-top: 80px;
+  display: flex;
+  justify-content: center;
 }
 /* CSS TABLA */
 .cont-tabla {
@@ -67,8 +69,16 @@ body {
 /* CSS PAGINACION */
 .paginacion {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin: 20px 0;
+}
+
+.btn-general :disabled {
+  background-color: #282a30;
+  color: #888; /* Color del texto del botón deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor para indicar que el botón está deshabilitado */
+  opacity: 0.6; /* Ajusta la opacidad para mayor claridad */
 }
 
 .pagina-button {
@@ -99,6 +109,7 @@ body {
   align-items: center;
   background-color: #f5f5f5;
   border-radius: 8px;
+  gap: 10px;
 }
 
 .tittle {
