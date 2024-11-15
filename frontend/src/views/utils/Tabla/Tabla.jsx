@@ -45,7 +45,6 @@ export const Tabla = ({ datos, contadores, titulo }) => {
     }
   };
 
-}
   // Función para manejar la descarga
   const handleDownload = (event) => {
     event.preventDefault();
@@ -79,14 +78,13 @@ export const Tabla = ({ datos, contadores, titulo }) => {
       <div className="cont-crear-descargar">
         <Contadores contadores={contadores} />
         <div className="filtro">
-             
-              <input
-                type="text"
-                placeholder="Buscar registros"
-                value={buscar}
-                onChange={handleBuscarChange}
-              />
-            </div>
+          <input
+            type="text"
+            placeholder="Buscar registros"
+            value={buscar}
+            onChange={handleBuscarChange}
+          />
+        </div>
         <button onClick={handleDownload} className="btn-descargar">
           <SiMicrosoftexcel className="excel-icon" /> Descargar
         </button>

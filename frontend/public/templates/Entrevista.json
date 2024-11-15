@@ -27,7 +27,9 @@
         { "value": "cc", "label": "Cédula de Ciudadanía" },
         { "value": "ti", "label": "Tarjeta de Identidad" },
         { "value": "ce", "label": "Cédula de Extranjería" },
-        { "value": "pasaporte", "label": "Pasaporte" }
+        { "value": "pasaporte", "label": "Pasaporte" },
+        { "value": "RC", "label": "Registro civil" },
+        { "value": "PPT", "label": "Permiso por protección temporal" }
       ],
       "placeholder": "Seleccione el tipo de identificación",
       "id": "tipo_identificacion"
@@ -61,6 +63,43 @@
       "placeholder": "Seleccione el sexo",
       "id": "sexo"
     },
+    "etnia": {
+      "label": "Etnia",
+      "type": "select",
+      "options": [
+        { "value": "indigena", "label": "Indígena" },
+        { "value": "afrocolombiano", "label": "Afrocolombiano" },
+        { "value": "blanco", "label": "Blanco" },
+        { "value": "mestizo", "label": "Mestizo" },
+        { "value": "rom", "label": "Rom (Gitano)" },
+        { "value": "raizal", "label": "Raizal" },
+        { "value": "palenquero", "label": "Palenquero" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "placeholder": "Seleccione la etnia",
+      "id": "etnia"
+    },
+    "talla_sudadera": {
+        "label": "Talla de Sudadera",
+        "type": "select",
+        "options": [
+          { "value": "2-3 años", "label": "2-3 años" },
+          { "value": "4-5 años", "label": "4-5 años" },
+          { "value": "6-7 años", "label": "6-7 años" },
+          { "value": "8-9 años", "label": "8-9 años" },
+          { "value": "10-11 años", "label": "10-11 años" },
+          { "value": "12-13 años", "label": "12-13 años" },
+          { "value": "S", "label": "S" },
+          { "value": "M", "label": "M" },
+          { "value": "L", "label": "L" },
+          { "value": "XL", "label": "XL" },
+          { "value": "XXL", "label": "XXL" },
+          { "value": "XXXL", "label": "XXXL" }
+        ],
+        "placeholder": "Seleccione la talla",
+        "id": "talla_sudadera"
+      },
+
     "diagnostico": {
       "label": "Diagnóstico",
       "type": "text",
@@ -123,9 +162,23 @@
       "id": "talla_zapatos"
     },
     "talla_sudadera": {
-      "label": "Talla de sudadera",
-      "type": "text",
-      "placeholder": "Ingrese talla de sudadera",
+      "label": "Talla de Sudadera",
+      "type": "select",
+      "options": [
+        { "value": "2-3 años", "label": "2-3 años" },
+        { "value": "4-5 años", "label": "4-5 años" },
+        { "value": "6-7 años", "label": "6-7 años" },
+        { "value": "8-9 años", "label": "8-9 años" },
+        { "value": "10-11 años", "label": "10-11 años" },
+        { "value": "12-13 años", "label": "12-13 años" },
+        { "value": "S", "label": "S" },
+        { "value": "M", "label": "M" },
+        { "value": "L", "label": "L" },
+        { "value": "XL", "label": "XL" },
+        { "value": "XXL", "label": "XXL" },
+        { "value": "XXXL", "label": "XXXL" }
+      ],
+      "placeholder": "Seleccione la talla",
       "id": "talla_sudadera"
     },
     "util_panial": {
@@ -135,28 +188,38 @@
       "id": "util_panial"
     },
     "etapa": {
-      "label": "Etapa",
-      "type": "number",
-      "placeholder": "Ingrese etapa del pañal",
+      "label": "Etapa del pañal",
+      "type": "select",
+      "options": [
+        { "value": "RN", "label": "Recién Nacido - RN" },
+        { "value": "P", "label": "Etapa 1 - P" },
+        { "value": "M", "label": "Etapa 2 - M" },
+        { "value": "G", "label": "Etapa 3 - G" },
+        { "value": "XG", "label": "Etapa 4 - XG" },
+        { "value": "XXG", "label": "Etapa 5 y 6 - XXG" },
+        { "value": "adulto_s", "label": "Adulto - S" },
+        { "value": "adulto_m", "label": "Adulto - M" },
+        { "value": "adulto_l", "label": "Adulto - L" },
+        { "value": "adulto_xl", "label": "Adulto - XL" }
+      ],
+      "placeholder": "Seleccione la etapa del pañal",
       "id": "etapa"
-    }
+    }    
   },
   "Expectativas": {
     "expectivas": {
-    "label": "¿Qué expectativas tiene usted frente al tratamiento de su hijo/a durante la permanencia en el centro?",
-    "type": "text",
-    "placeholder": "Ingrese sus expectativas",
-    "id": "obs_expectativas"
+      "label": "¿Qué expectativas tiene usted frente al tratamiento de su hijo/a durante la permanencia en el centro?",
+      "type": "text",
+      "placeholder": "Ingrese sus expectativas",
+      "id": "obs_expectativas"
     },
-
     "areas_interes": {
-    "label": "¿Cuáles son las áreas de interés a trabajar con su hijo/a?",
-    "type": "text",
-    "placeholder": "Ingrese áreas de interés",
-    "id": "areas_interes"
-  }
+      "label": "¿Cuáles son las áreas a trabajar con su hijo/a?",
+      "type": "text",
+      "placeholder": "Ingrese áreas de interés",
+      "id": "areas_interes"
+    }
   },
-
   "Acudiente 1": {
     "cuidador1_nombre": {
       "label": "Nombre del cuidador",
@@ -210,6 +273,36 @@
       ],
       "placeholder": "Seleccione el parentesco",
       "id": "parentesco_cuidador1"
+    },
+    "telefono1": {
+      "label": "Teléfono fijo",
+      "type": "text",
+      "placeholder": "Ingrese el teléfono de contacto",
+      "id": "telefono_fijo"
+    },
+    "telefono2": {
+      "label": "Teléfono celular",
+      "type": "text",
+      "placeholder": "Ingrese el teléfono de contacto",
+      "id": "telefono_celular"
+    },
+    "email": {
+      "label": "Email",
+      "type": "email",
+      "placeholder": "Ingrese su correo electrónico",
+      "id": "email"
+    },
+    "barrio": {
+      "label": "Barrio",
+      "type": "text",
+      "placeholder": "Ingrese el barrio",
+      "id": "barrio"
+    },
+    "direccion": {
+      "label": "Dirección",
+      "type": "text",
+      "placeholder": "Ingrese su dirección",
+      "id": "direccion"
     }
   },
   "Acudiente 2": {
@@ -249,7 +342,7 @@
       "placeholder": "Seleccione el tipo de identificación",
       "id": "cuidador2_tipo_identificacion"
     },
-    "ocupacion2": {
+    "ocupacion": {
       "label": "Ocupación",
       "type": "text",
       "placeholder": "Ingrese la ocupación",
@@ -265,38 +358,36 @@
       ],
       "placeholder": "Seleccione el parentesco",
       "id": "parentesco_cuidador2"
-    }
-  },
-  "Datos de contacto": {
+    },
     "telefono1": {
       "label": "Teléfono fijo",
       "type": "text",
       "placeholder": "Ingrese el teléfono de contacto",
-      "id": "telefono_fijo"
+      "id": "telefono_fijo_cuidador2"
     },
     "telefono2": {
       "label": "Teléfono celular",
       "type": "text",
       "placeholder": "Ingrese el teléfono de contacto",
-      "id": "telefono_celular"
+      "id": "telefono_celular_cuidador2"
     },
     "email": {
       "label": "Email",
       "type": "email",
       "placeholder": "Ingrese su correo electrónico",
-      "id": "email"
+      "id": "email_cuidador2"
     },
     "barrio": {
       "label": "Barrio",
       "type": "text",
       "placeholder": "Ingrese el barrio",
-      "id": "barrio"
+      "id": "barrio_cuidador2"
     },
     "direccion": {
       "label": "Dirección",
       "type": "text",
       "placeholder": "Ingrese su dirección",
-      "id": "direccion"
+      "id": "direccion_cuidador2"
     }
   }
 }
